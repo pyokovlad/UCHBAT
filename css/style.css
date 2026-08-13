@@ -92,11 +92,12 @@ a {
 }
 
 .brand__logo {
-    width: 52px;
-    height: 52px;
-    border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
     background: var(--bg-elevated);
-    object-fit: cover;
+    object-fit: contain;   
+    padding: 3px;          
 }
 
 .brand__text {
