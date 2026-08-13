@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Балловая система | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link active">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Балловая система</h1>
+                <p class="page-header__subtitle">Начисление баллов за мероприятия и несение службы.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            
+            <section class="section">
+                <h2 class="section__title">📑 Общая балловая система</h2>
+
+                <div class="points-table">
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Участие в глобальной РП ситуации (ГМП)
+                            <span class="points-row__note">(не менее 3-х фракций, 3 скриншота)</span>
+                        </div>
+                        <div class="points-row__value">70</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">Участие в поставке</div>
+                        <div class="points-row__value">50</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">Участие в мероприятиях по призыву</div>
+                        <div class="points-row__value">100</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">Участие в отбитии складов и КрАЗ</div>
+                        <div class="points-row__value">30</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Участие в вечерней поверке
+                            <span class="points-row__note">(2 скриншота)</span>
+                        </div>
+                        <div class="points-row__value">40</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">Реанимация военнослужащего/гражданского</div>
+                        <div class="points-row__value">5</div>
+                    </div>
+
+                    <div class="points-row points-row">
+                        <div class="points-row__name">
+                            Пост «Дежурный водитель» — за каждые 60 минут
+                            <span class="points-row__note">(доклады каждые 20 минут)</span>
+                        </div>
+                        <div class="points-row__value">
+                            100
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📋 Отдел кадров</h2>
+
+                <div class="points-table">
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Пост Агитационной стойки на КПП-1 — за каждые 60 минут
+                            <span class="points-row__note">(доклады каждые 20 минут)</span>
+                        </div>
+                        <div class="points-row__value">100</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Ответ на звонок о вступлении во фракцию и консультация гражданина
+                            <span class="points-row__note">(со звания Мл. лейтенант)</span>
+                        </div>
+                        <div class="points-row__value">10</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Рассмотрение рапорта на повышения военнослужащих из числа Учебного батальона
+                        </div>
+                        <div class="points-row__value">30</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Принятие гражданина вне призывных мероприятий по электронной заявке
+                            <span class="points-row__note">(от Мл. лейтенанта, 2 скрина)</span>
+                        </div>
+                        <div class="points-row__value">50</div>
+                    </div>
+
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📘 Учебная рота и Военная Академия</h2>
+
+                <div class="points-table">
+
+                    <div class="points-row">
+                        <div class="points-row__name">Рассмотрение рапорта на повышения военнослужащих из числа Учебной роты</div>
+                        <div class="points-row__value">30</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Проведение единого экзамена
+                            <span class="points-row__note">(за военнослужащего, Форма допуска №3)</span>
+                        </div>
+                        <div class="points-row__value">20</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">Приведение к присяге (за военнослужащего)</div>
+                        <div class="points-row__value">10</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Проведение лекции Устава ВС РФ
+                            <span class="points-row__note">(минимум 3 человека, не менее 15 минут)</span>
+                        </div>
+                        <div class="points-row__value">50</div>
+                    </div>
+
+                    <div class="points-row points-row--highlight">
+                        <div class="points-row__name">
+                            Проведение лекции Устава ВС РФ
+                            <span class="points-row__note">(от 6 человек, не менее 15 минут)</span>
+                        </div>
+                        <div class="points-row__value">70</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Проведение вступительной лекции
+                            <span class="points-row__note">(минимум 3 человека)</span>
+                        </div>
+                        <div class="points-row__value">50</div>
+                    </div>
+
+                    <div class="points-row points-row--highlight">
+                        <div class="points-row__name">
+                            Проведение вступительной лекции
+                            <span class="points-row__note">(от 6 человек)</span>
+                        </div>
+                        <div class="points-row__value">70</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Проведение лекции по профориентации
+                            <span class="points-row__note">(минимум 3 человека)</span>
+                        </div>
+                        <div class="points-row__value">50</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Лекция по медицинской подготовке
+                            <span class="points-row__note">(минимум 3 человека)</span>
+                        </div>
+                        <div class="points-row__value">50</div>
+                    </div>
+
+                    <div class="points-row points-row--highlight">
+                        <div class="points-row__name">
+                            Лекция по медицинской подготовке
+                            <span class="points-row__note">(от 6 человек)</span>
+                        </div>
+                        <div class="points-row__value">70</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Курс огневой подготовки для ВА (теория + практика)
+                            <span class="points-row__note">(минимум 3 человека, 20 минут)</span>
+                        </div>
+                        <div class="points-row__value">80</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Курс строевой подготовки для ВА (теория + практика)
+                            <span class="points-row__note">(минимум 3 человека, 20 минут)</span>
+                        </div>
+                        <div class="points-row__value">80</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Курс КПС и вождению (теория + практика)
+                            <span class="points-row__note">(минимум 3 человека, 20 минут)</span>
+                        </div>
+                        <div class="points-row__value">80</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">
+                            Тренировка по физической подготовке
+                            <span class="points-row__note">(минимум 3 человека, 15 минут)</span>
+                        </div>
+                        <div class="points-row__value">40</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="info-box">
+                    <p>
+                        Для отслеживания своих баллов воспользуйся калькулятором в разделе
+                        <a href="tools.html">«Инструменты»</a>. Там можно отметить все
+                        выполненные мероприятия и получить готовый отчёт с группировкой по категориям.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

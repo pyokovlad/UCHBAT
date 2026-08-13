@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переаттестация | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+   <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link active">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Переаттестация</h1>
+                <p class="page-header__subtitle">Восстановление в ВС РФ и условия прохождения теста.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <section class="section">
+                <h2 class="section__title">📋 Общие сведения</h2>
+                <div class="info-box">
+                    <p>
+                        Переаттестация позволяет военнослужащему восстановить звание в Вооружённых Силах
+                        Российской Федерации. Минимальное звание для восстановления — <strong>Старший сержант</strong>.
+                    </p>
+                    <p>
+                        Переаттестацию могут проводить военнослужащие со званиями, имеющими право на её проведение.
+                        Перед началом уточните, есть ли у офицера <strong>УВП (Учебно-восстановительная программа)</strong>
+                        для проведения. Если нет — переаттестацию можно провести самостоятельно.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section__title">🎯 Правила прохождения</h2>
+
+                <div class="rules-list">
+                    <div class="rule-item">
+                        <div class="rule-item__number">1</div>
+                        <div class="rule-item__content">
+                            Перед вами <strong>27 вопросов</strong>. На прохождение теста отведено <strong>30 минут</strong>.
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-item__number">2</div>
+                        <div class="rule-item__content">
+                            Вы можете отвечать только на те вопросы, на которые знаете ответ.
+                            Необходимо набрать количество баллов, соответствующее желаемому званию.
+                            В противном случае будет присвоено звание, соответствующее набранным баллам.
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-item__number">3</div>
+                        <div class="rule-item__content">
+                            Ответ <strong>«Понятия не имею»</strong> не отнимает баллы и не влияет на итоговый результат.
+                            Можно отвечать не на все вопросы.
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-item__number">4</div>
+                        <div class="rule-item__content">
+                            После прохождения теста нажмите кнопку <strong>«ОТПРАВИТЬ»</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box" style="margin-top: 24px;">
+                    <p>
+                        ⚠ Если вы не набираете положенные <strong>80 баллов</strong>, вам будет присвоено звание
+                        <strong>Старший сержант</strong>, но будет введено <strong>ограничение по выбору подразделения</strong>.
+                        Вы будете направлены в Учебную академию для прохождения <strong>УКМБ</strong>
+                        (ускоренного курса молодого бойца), по окончании которого сможете выбрать подразделение.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section__title">🏅 Проходные баллы по званиям</h2>
+
+                <div class="points-table">
+
+                    <div class="points-row">
+                        <div class="points-row__name">Старший сержант</div>
+                        <div class="points-row__value">80</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">Старшина</div>
+                        <div class="points-row__value">90</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">Прапорщик</div>
+                        <div class="points-row__value">100</div>
+                    </div>
+
+                    <div class="points-row">
+                        <div class="points-row__name">Старший прапорщик</div>
+                        <div class="points-row__value">110</div>
+                    </div>
+
+                    <div class="points-row points-row--highlight">
+                        <div class="points-row__name">Младший лейтенант</div>
+                        <div class="points-row__value">120</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="info-box">
+                    <p>
+                        При прохождении переаттестации убедитесь, что у вас стабильное соединение
+                        и достаточно времени для прохождения всего теста. Повторная попытка возможна
+                        только после окончания срока действия предыдущей.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

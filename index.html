@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link active">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="main">
+
+        
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero__title">Учебный батальон</h1>
+                <p class="hero__subtitle">1-я мотострелковая бригада • Войсковая часть №12132</p>
+                <p class="hero__text">
+                    Добро пожаловать на официальный портал Учебного батальона.
+                    Здесь собрана вся необходимая информация для несения службы:
+                    от лекций и тренировок до системы повышения.
+                </p>
+                <div class="hero__actions">
+                    <a href="tools.html" class="btn btn--gold">🛠 Открыть инструменты</a>
+                    <a href="faq.html" class="btn btn--outline">FAQ стажёру</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+
+            
+            <section class="section">
+                <h2 class="section__title">📂 Разделы портала</h2>
+                <div class="cards-grid">
+
+                    <a href="lectures.html" class="card">
+                        <span class="card__icon">📚</span>
+                        <h3 class="card__title">Лекции и тренировки</h3>
+                        <p class="card__text">Правила проведения занятий, оповещения и фиксация todo.</p>
+                    </a>
+
+                    <a href="posts.html" class="card">
+                        <span class="card__icon">🛡</span>
+                        <h3 class="card__title">Посты и наряды</h3>
+                        <p class="card__text">ДПЧ, КПП, дежурный водитель, агитационная стойка.</p>
+                    </a>
+
+                    <a href="exams.html" class="card">
+                        <span class="card__icon">📝</span>
+                        <h3 class="card__title">Экзамены</h3>
+                        <p class="card__text">Правила проведения, варианты тестов и система баллов.</p>
+                    </a>
+
+                    <a href="promotion.html" class="card">
+                        <span class="card__icon">📈</span>
+                        <h3 class="card__title">Система повышения</h3>
+                        <p class="card__text">Требования к званиям для Учебного батальона и Отдела кадров.</p>
+                    </a>
+
+                    <a href="points.html" class="card">
+                        <span class="card__icon">🧮</span>
+                        <h3 class="card__title">Балловая система</h3>
+                        <p class="card__text">Начисление баллов за службу и мероприятия.</p>
+                    </a>
+
+                    <a href="tools.html" class="card">
+                        <span class="card__icon">🛠</span>
+                        <h3 class="card__title">Инструменты</h3>
+                        <p class="card__text">Генераторы рапортов, докладов и отчётов.</p>
+                    </a>
+
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">🎯 Полезно знать</h2>
+                <div class="cards-grid cards-grid--3">
+
+                    <div class="panel">
+                        <h3 class="panel__title">👤 Ты стажер?</h3>
+                        <p class="panel__text">
+                            Ознакомься с FAQ — там собраны твои обязанности,
+                            правила проведения лекций и ответы на частые вопросы.
+                        </p>
+                        <a href="faq.html" class="btn btn--small">Читать FAQ</a>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel__title">📋 Формы допуска</h3>
+                        <p class="panel__text">
+                            Для проведения лекций, проверки отчётов и экзаменов
+                            необходимо получить соответствующую форму допуска.
+                        </p>
+                        <a href="access.html" class="btn btn--small">Подробнее</a>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel__title">💬 Спецсвязь</h3>
+                        <p class="panel__text">
+                            Вступи в Discord для оперативной связи с командованием
+                            и получения ролей военнослужащего.
+                        </p>
+                        <a href="resources.html" class="btn btn--small">Перейти</a>
+                    </div>
+
+                </div>
+            </section>
+
+            
+<!-- ============================================================
+     ОБЪЯВЛЕНИЯ
+     ИНСТРУКЦИЯ ДЛЯ АДМИНА:
+     
+     Три типа объявлений:
+     1. ВАЖНЫЕ       → класс "announcement announcement--important" (красное)
+     2. ВНУТРИИГРОВЫЕ → класс "announcement" (золотое)
+     3. НОВОСТИ САЙТА → класс "announcement announcement--website" (синее)
+     
+     Автор:
+     - Для важных и игровых: звание + должность + ФИО
+     - Для новостей сайта: только никнейм
+     ============================================================ -->
+
+
+<!-- <section class="section">
+    <h2 class="section__title">⚠ Важные объявления</h2>
+
+    <div class="announcements">
+
+        
+        <div class="announcement announcement--important">
+            <div class="announcement__date">13.08.2026</div>
+            <div class="announcement__body">
+                <span class="announcement__badge">⚠ Важно</span>
+                <h4 class="announcement__title">Срочный сбор личного состава</h4>
+                <p class="announcement__text">
+                    Всему личному составу Учебного батальона прибыть в расположение части
+                    в 20:00 по московскому времени. Форма одежды — полевая №2, при себе иметь оружие.
+                    Неявка без уважительной причины будет расцениваться как нарушение устава.
+                </p>
+                <div class="announcement__author">
+                    <span class="announcement__author-icon">👤</span>
+                    <span class="announcement__author-rank">Капитан</span>
+                    <span class="announcement__author-divider">•</span>
+                    <span class="announcement__author-position">Командир Учебного батальона</span>
+                    <span class="announcement__author-divider">•</span>
+                    <span class="announcement__author-name">Иван Петров</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section> -->
+
+
+<!-- <section class="section">
+    <h2 class="section__title">🎮 Внутриигровые объявления</h2>
+
+    <div class="announcements">
+
+        <div class="announcement">
+            <div class="announcement__date">13.08.2026</div>
+            <div class="announcement__body">
+                <h4 class="announcement__title">Призыв на срочную военную службу</h4>
+                <p class="announcement__text">
+                    Оповещаем о начале призыва молодых мужчин и женщин для прохождения срочной
+                    военной службы в рядах ВС РФ. Ожидаем всех желающих на призывном пункте
+                    по адресу: г. Москва, Гвардейский район. Время окончания призыва 20:00.
+                </p>
+                <div class="announcement__author">
+                    <span class="announcement__author-icon">👤</span>
+                    <span class="announcement__author-rank">Ст. лейтенант</span>
+                    <span class="announcement__author-divider">•</span>
+                    <span class="announcement__author-position">Начальник отдела кадров</span>
+                    <span class="announcement__author-divider">•</span>
+                    <span class="announcement__author-name">Алексей Левицкий</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="announcement">
+            <div class="announcement__date">12.08.2026</div>
+            <div class="announcement__body">
+                <h4 class="announcement__title">Экскурсия по войсковой части</h4>
+                <p class="announcement__text">
+                    В 17:30 на территории военкомата по адресу: г. Москва, Гвардейский район
+                    объявлен сбор граждан, желающих посетить открытую экскурсию по войсковой части
+                    1-ой московской мотострелковой бригады (ВЧ №12132).
+                </p>
+                <div class="announcement__author">
+                    <span class="announcement__author-icon">👤</span>
+                    <span class="announcement__author-rank">Лейтенант</span>
+                    <span class="announcement__author-divider">•</span>
+                    <span class="announcement__author-position">Зам. командира Учебного батальона</span>
+                    <span class="announcement__author-divider">•</span>
+                    <span class="announcement__author-name">Сергей Иванов</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section> -->
+
+
+<section class="section">
+    <h2 class="section__title">🌐 Новости сайта</h2>
+
+    <div class="announcements">
+
+        <div class="announcement announcement--website">
+            <div class="announcement__date">13.08.2026</div>
+            <div class="announcement__body">
+                <span class="announcement__badge announcement__badge--website">🆕 Новое</span>
+                <h4 class="announcement__title">Добавлен поиск по сайту</h4>
+                <p class="announcement__text">
+                    Теперь на сайте работает полноценный поиск! Начните вводить запрос в строку
+                    поиска в шапке сайта — и вы мгновенно найдёте нужные страницы и информацию.
+                </p>
+                <div class="announcement__author">
+                    <span class="announcement__author-icon">👤</span>
+                    <span class="announcement__author-name">pyoko</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="announcement announcement--website">
+            <div class="announcement__date">12.08.2026</div>
+            <div class="announcement__body">
+                <span class="announcement__badge announcement__badge--website">🆕 Новое</span>
+                <h4 class="announcement__title">Запущены инструменты для генерации рапортов</h4>
+                <p class="announcement__text">
+                    В разделе <strong>«Инструменты»</strong> доступны 8 генераторов:
+                    доклады с постов, вызовы в рацию, команды /todo, объявления
+                    и калькулятор баллов. Всё автоматически копируется в буфер обмена.
+                </p>
+                <div class="announcement__author">
+                    <span class="announcement__author-icon">👤</span>
+                    <span class="announcement__author-name">pyoko</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        </div>
+    </main>
+
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

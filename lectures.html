@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лекции и тренировки | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link active">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="main">
+
+        
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Лекции и тренировки</h1>
+                <p class="page-header__subtitle">Порядок проведения занятий и требования к каждому виду.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            
+            <section class="section">
+                <h2 class="section__title">📃 Как проводится лекция</h2>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step__number">1</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Оповещение в рацию</h4>
+                            <p class="step__text">
+                                Отпиши в рацию: <em>УБ | УР, ВА, в [время] будет лекция [название] в лекционной [номер 1/2]</em>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">2</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Оповещение в Discord</h4>
+                            <p class="step__text">
+                                В канале оповещения отпиши: <em>[тег ВА] Внимание! в [время] будет проходить [название лекции].
+                                Жду в [ссылка на голосовой канал]</em>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">3</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Сбор личного состава</h4>
+                            <p class="step__text">
+                                Дождись всех в лекционной, посади на стулья и попроси зайти в голосовой канал Discord.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">4</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Фиксация начала</h4>
+                            <p class="step__text">
+                                Предупреди, чтобы все зафиксировали <strong>todo</strong>, затем откинь её и включи демонстрацию экрана.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">5</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Проведение лекции</h4>
+                            <p class="step__text">
+                                Проведи лекцию. Минимальное время проведения — <strong>10 минут</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">6</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Фиксация окончания</h4>
+                            <p class="step__text">
+                                По завершении откинь <strong>todo</strong> и предупреди, чтобы все её зафиксировали.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📌 Что такое todo</h2>
+                <div class="info-box">
+                    <p>
+                        <strong>todo</strong> — это фиксация того, что ты начал или закончил тренировку, лекцию,
+                        либо что боец присягнул. Её необходимо откидывать в чат <strong>«Рядом»</strong>.
+                    </p>
+                    <p>
+                        Для лекций todo отписывается <strong>дважды</strong>: в начале и в конце занятия.
+                        Это подтверждение того, что мероприятие фактически состоялось.
+                    </p>
+                    <a href="tools.html" class="btn btn--small">🛠 Сформировать todo в Инструментах</a>
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📚 Виды занятий</h2>
+
+                
+                <div class="activity-group">
+                    <h3 class="activity-group__title">📖 Лекции</h3>
+                    <div class="activity-grid">
+
+                        <div class="activity-card">
+                            <div class="activity-card__header">
+                                <h4 class="activity-card__title">Вступительная лекция</h4>
+                                <span class="activity-card__points">50 / 70</span>
+                            </div>
+                            <div class="activity-card__meta">
+                                <span>👥 Мин. 1 чел. (от 6 — повышенные)</span>
+                                <span>⏱ Мин. 10 минут</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-card">
+                            <div class="activity-card__header">
+                                <h4 class="activity-card__title">Лекция Устава ВС РФ</h4>
+                                <span class="activity-card__points">50 / 70</span>
+                            </div>
+                            <div class="activity-card__meta">
+                                <span>👥 Мин. 1 чел. (от 6 — повышенные)</span>
+                                <span>⏱ Не менее 15 минут</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-card">
+                            <div class="activity-card__header">
+                                <h4 class="activity-card__title">Лекция по профориентации</h4>
+                                <span class="activity-card__points">50</span>
+                            </div>
+                            <div class="activity-card__meta">
+                                <span>👥 Мин. 1 чел.</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-card activity-card--external">
+                            <div class="activity-card__header">
+                                <h4 class="activity-card__title">Лекция по мед. подготовке</h4>
+                                <span class="badge badge--mr">МР</span>
+                            </div>
+                            <div class="activity-card__meta">
+                                <span>👥 Мин. 1 чел. (от 6 — повышенные)</span>
+                                <span>🎖 Проводит Медицинская рота</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="activity-group">
+                    <h3 class="activity-group__title">🏃 Тренировки</h3>
+                    <div class="activity-grid">
+
+                        <div class="activity-card">
+                            <div class="activity-card__header">
+                                <h4 class="activity-card__title">Физическая подготовка</h4>
+                                <span class="activity-card__points">40</span>
+                            </div>
+                            <div class="activity-card__meta">
+                                <span>👥 Мин. 1 чел.</span>
+                                <span>⏱ Мин. 15 минут</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-card">
+                            <div class="activity-card__header">
+                                <h4 class="activity-card__title">Строевая подготовка (ВА)</h4>
+                                <span class="activity-card__points">80</span>
+                            </div>
+                            <div class="activity-card__meta">
+                                <span>👥 Мин. 1 чел.</span>
+                                <span>⏱ Мин. 20 минут</span>
+                                <span>📖 Теория + практика</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="activity-group">
+                    <h3 class="activity-group__title">🎯 Курсы</h3>
+                    <div class="activity-grid">
+
+                        <div class="activity-card activity-card--external">
+                            <div class="activity-card__header">
+                                <h4 class="activity-card__title">Огневая подготовка (ВА)</h4>
+                                <span class="badge badge--sso">ССО</span>
+                            </div>
+                            <div class="activity-card__meta">
+                                <span>👥 Мин. 1 чел.</span>
+                                <span>⏱ Мин. 20 минут</span>
+                                <span>🎖 Проводит подразделение ССО</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-card">
+                            <div class="activity-card__header">
+                                <h4 class="activity-card__title">КПС и вождение (ВА)</h4>
+                                <span class="activity-card__points">80</span>
+                            </div>
+                            <div class="activity-card__meta">
+                                <span>👥 Мин. 1 чел.</span>
+                                <span>⏱ Мин. 20 минут</span>
+                                <span>📖 Теория + практика</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="activity-legend">
+                    <span class="activity-legend__item"><span class="activity-card__points">50 / 70</span> — баллы за проведение</span>
+                    <span class="activity-legend__item"><span class="badge badge--sso">ССО</span> — проводит подразделение ССО</span>
+                    <span class="activity-legend__item"><span class="badge badge--mr">МР</span> — проводит Медицинская рота</span>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

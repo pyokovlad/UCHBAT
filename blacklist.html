@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чёрный список | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link active">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <section class="page-header page-header--danger">
+            <div class="container">
+                <h1 class="page-header__title">Чёрный список</h1>
+                <p class="page-header__subtitle">Причины и сроки внесения в ЧС Учебного батальона.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <section class="section">
+                <div class="warning-box">
+                    <p>
+                        ⚠ <strong>Внимание!</strong> Попадание в Чёрный список ограничивает возможности
+                        военнослужащего. Перед совершением каких-либо действий ознакомьтесь с причинами
+                        и сроками наказания.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section__title">⛔ Причины внесения</h2>
+
+                <div class="blacklist-grid">
+
+                    <div class="blacklist-card">
+                        <div class="blacklist-card__icon">📚</div>
+                        <div class="blacklist-card__days">14 дней</div>
+                        <h3 class="blacklist-card__title">Непрохождение УР и ВА</h3>
+                        <p class="blacklist-card__text">
+                            Уволился, не достигнув звания Младший сержант — для Учебной роты.
+                            Для УКМБ — не достигнув звания Сержант.
+                        </p>
+                    </div>
+
+                    <div class="blacklist-card">
+                        <div class="blacklist-card__icon">⏱</div>
+                        <div class="blacklist-card__days">14 дней</div>
+                        <h3 class="blacklist-card__title">Досрочное окончание срочной службы</h3>
+                        <p class="blacklist-card__text">
+                            Досрочное прекращение срочной военной службы.
+                        </p>
+                    </div>
+
+                    <div class="blacklist-card blacklist-card--severe">
+                        <div class="blacklist-card__icon">🚫</div>
+                        <div class="blacklist-card__days">50 дней</div>
+                        <h3 class="blacklist-card__title">Самовольный разрыв контракта/повестки</h3>
+                        <p class="blacklist-card__text">
+                            Самовольный разрыв контракта или повестки, в том числе выход из игры (лив багом).
+                        </p>
+                    </div>
+
+                    <div class="blacklist-card blacklist-card--severe">
+                        <div class="blacklist-card__icon">⚖</div>
+                        <div class="blacklist-card__days">30 дней</div>
+                        <h3 class="blacklist-card__title">Массовые нарушения ВУ ВС РФ</h3>
+                        <p class="blacklist-card__text">
+                            Массовые нарушения воинского устава ВС РФ (ОПП — особо тяжкие преступления).
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="info-box">
+                    <p>
+                        Срок пребывания в Чёрном списке отсчитывается с момента внесения.
+                        По истечении срока военнослужащий может быть восстановлен через
+                        <a href="reattestation.html">переаттестацию</a>.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

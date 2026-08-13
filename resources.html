@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресурсы | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link active">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="main">
+
+        
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Ресурсы</h1>
+                <p class="page-header__subtitle">Полезные ссылки, документы и каналы связи.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            
+            <section class="section">
+                <h2 class="section__title">💬 Связь</h2>
+                <div class="resource-grid">
+
+                    <a href="https://discord.gg/R8gZc3x7ut" target="_blank" class="resource-card">
+                        <div class="resource-card__icon">🎧</div>
+                        <h4 class="resource-card__title">Спецсвязь Discord</h4>
+                        <p class="resource-card__desc">
+                            Discord-сервер для оперативной связи с командованием и получения ролей.
+                        </p>
+                        <span class="resource-card__link">Перейти →</span>
+                    </a>
+
+                    <a href="https://forum.rmrp.ru" target="_blank" class="resource-card">
+                        <div class="resource-card__icon">🌐</div>
+                        <h4 class="resource-card__title">Форум RMRP</h4>
+                        <p class="resource-card__desc">
+                            forum.rmrp.ru → Кутузовский → Организации → Гос. Организации → Армия → Спец. Связь.
+                        </p>
+                        <span class="resource-card__link">Перейти →</span>
+                    </a>
+
+                </div>
+
+                <div class="info-box" style="margin-top: 20px;">
+                    <p>
+                        Для получения роли в Discord: зайдите в канал <strong>«Получение роли»</strong>,
+                        нажмите кнопку <strong>«ВС РФ»</strong>, заполните Фамилию, Имя и статик,
+                        затем нажмите «Отправить».
+                    </p>
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📄 Документы и таблицы</h2>
+                <div class="resource-grid">
+
+                    
+                    <div class="resource-card resource-card--static">
+                        <span class="resource-card__badge">✨ Доступно на сайте</span>
+                        <div class="resource-card__icon">📊</div>
+                        <h4 class="resource-card__title">Таблица для отчётов</h4>
+                        <p class="resource-card__desc">
+                            Шаблон листа для откидывания в рацию и формирования отчётов.
+                            Вы можете работать в Google Таблицах или воспользоваться
+                            генераторами прямо на сайте — как вам удобнее.
+                        </p>
+                        <div class="resource-card__actions">
+                            <a href="https://docs.google.com/spreadsheets/d/1oQID8GU-zjJfqJiRzWwIitZSztLmWnSj6x_WUTZx4FU/edit"
+                                target="_blank" class="resource-card__btn">
+                                Открыть в Google
+                            </a>
+                            <a href="tools.html" class="resource-card__btn resource-card__btn--accent">
+                                На сайте →
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1mubwVlGG3bKGA7rMgN6jAyM0IfJm-0R8HkZyYmWvOc7ViA/viewform"
+                        target="_blank" class="resource-card">
+                        <div class="resource-card__icon">📝</div>
+                        <h4 class="resource-card__title">Сдача на допуск №2</h4>
+                        <p class="resource-card__desc">
+                            Форма для сдачи на Форму допуска №2 (проверка отчётов).
+                        </p>
+                        <span class="resource-card__link">Открыть →</span>
+                    </a>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_Vf9tO0Z27Of4yFQCGpBoKPguCtJFKDScznMhPJBxgLlDAA/viewform"
+                        target="_blank" class="resource-card">
+                        <div class="resource-card__icon">📝</div>
+                        <h4 class="resource-card__title">Сдача на допуск №3</h4>
+                        <p class="resource-card__desc">
+                            Форма для сдачи на Форму допуска №3 (проведение экзаменов).
+                        </p>
+                        <span class="resource-card__link">Открыть →</span>
+                    </a>
+
+                </div>
+            </section>
+            
+
+            
+            <section class="section">
+                <h2 class="section__title">📝 Экзамены</h2>
+
+                <div class="warning-box">
+                    <p>
+                        ⚠ <strong>Внимание!</strong> Ссылки на экзамены предназначены только для отправки
+                        в <strong>личные сообщения</strong> военнослужащему. Не распространяйте их публично.
+                    </p>
+                </div>
+
+                <div class="resource-grid" style="margin-top: 20px;">
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSet44QRnRoix9zlWorGxlLkmaYvX33KgKxOjG-ZppcvohVXiw/viewform" target="_blank" class="resource-card">
+                        <div class="resource-card__icon">📄</div>
+                        <h4 class="resource-card__title">Вариант №1</h4>
+                        <p class="resource-card__desc">Экзаменационный тест, 40 вопросов.</p>
+                        <span class="resource-card__link">Открыть →</span>
+                    </a>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScDO7zkkzEQ1R2wamWuMKWCphAoELYvXCxt80NYXw15z94Bwg/viewform" target="_blank" class="resource-card">
+                        <div class="resource-card__icon">📄</div>
+                        <h4 class="resource-card__title">Вариант №2</h4>
+                        <p class="resource-card__desc">Экзаменационный тест, 40 вопросов.</p>
+                        <span class="resource-card__link">Открыть →</span>
+                    </a>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdng138qDY_aF_15mpkR-7y3SQDTETVCI8K8BHaK6PjupdFpg/viewform" target="_blank" class="resource-card">
+                        <div class="resource-card__icon">📄</div>
+                        <h4 class="resource-card__title">Вариант №3</h4>
+                        <p class="resource-card__desc">Экзаменационный тест, 40 вопросов.</p>
+                        <span class="resource-card__link">Открыть →</span>
+                    </a>
+
+                    <a href="https://docs.google.com/spreadsheets/d/1Ufu5gr1o_AMZWKh3dMVCrEqyl7AKAGyRcD8GKGH-nNg/edit" target="_blank" class="resource-card resource-card--gold">
+                        <div class="resource-card__icon">📊</div>
+                        <h4 class="resource-card__title">Результаты экзаменов</h4>
+                        <p class="resource-card__desc">Таблица с результатами прошедших экзаменов.</p>
+                        <span class="resource-card__link">Открыть →</span>
+                    </a>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

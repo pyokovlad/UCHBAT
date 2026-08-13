@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка отчётов | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link active">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="main">
+
+        
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Проверка отчётов</h1>
+                <p class="page-header__subtitle">Правила проверки отчётов Учебной роты и Военной Академии.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            
+            <section class="section">
+                <h2 class="section__title">🎖 Кто может проверять</h2>
+                <div class="info-box">
+                    <p>
+                        Проверять отчёты разрешено с должности <strong>Старший сержант</strong>
+                        при наличии <strong>Формы допуска №2</strong>.
+                    </p>
+                    <p>
+                        Отчёты проверяются <strong>внимательно, но не душно</strong>. Цель проверки —
+                        убедиться в фактическом проведении мероприятия, а не придраться к мелочам.
+                    </p>
+                    <a href="access.html" class="btn btn--small">Подробнее о Форме допуска №2</a>
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">🔍 Что проверять</h2>
+                <div class="check-grid">
+
+                    <div class="check-card">
+                        <div class="check-card__icon">📹</div>
+                        <h4 class="check-card__title">Боди-камера</h4>
+                        <p class="check-card__text">
+                            Обязательна <strong>только на постах и поставках</strong>.
+                            На лекциях, тренировках и присяге её отсутствие — не причина отказа.
+                        </p>
+                    </div>
+
+                    <div class="check-card">
+                        <div class="check-card__icon">🪪</div>
+                        <h4 class="check-card__title">Данные военнослужащего</h4>
+                        <p class="check-card__text">
+                            Статик, имя и фамилия, ID Discord должны быть указаны верно.
+                        </p>
+                    </div>
+
+                    <div class="check-card">
+                        <div class="check-card__icon">📻</div>
+                        <h4 class="check-card__title">Доклады на постах</h4>
+                        <p class="check-card__text">
+                            Верность подачи докладов, временной промежуток между ними
+                            и чат, в который они подаются.
+                        </p>
+                    </div>
+
+                    <div class="check-card">
+                        <div class="check-card__icon">🔢</div>
+                        <h4 class="check-card__title">Сверка статика</h4>
+                        <p class="check-card__text">
+                            Статик на боди-камере должен совпадать со статиком в игре.
+                        </p>
+                    </div>
+
+                    <div class="check-card">
+                        <div class="check-card__icon">📸</div>
+                        <h4 class="check-card__title">Скриншоты мероприятий</h4>
+                        <p class="check-card__text">
+                            На лекциях и тренировках должно быть <strong>2 скриншота</strong> —
+                            начало и конец мероприятия.
+                        </p>
+                    </div>
+
+                    <div class="check-card">
+                        <div class="check-card__icon">💬</div>
+                        <h4 class="check-card__title">Правильный чат</h4>
+                        <p class="check-card__text">
+                            Доклады должны подаваться в правильный чат, а не ошибочно в «Рядом» и т.п.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">❌ Причины отказа</h2>
+                <ul class="refusal-list">
+                    <li>Неверно указанный статик, имя и фамилия или ID Discord</li>
+                    <li>Отсутствие одного из скриншотов (начала или конца) на лекции или тренировке</li>
+                    <li>Неверная подача докладов на постах или неверный временной промежуток</li>
+                    <li>Подача докладов в неправильный чат</li>
+                    <li>Несовпадение статика на боди-камере со статиком в игре</li>
+                </ul>
+
+                <div class="info-box" style="margin-top: 24px;">
+                    <p>
+                        💡 <strong>Важно:</strong> отсутствие боди-камеры на лекции, тренировке или присяге
+                        <strong>не является причиной отказа</strong>. Боди-камера обязательна только на постах и поставках.
+                    </p>
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📝 Оформление решения</h2>
+                <div class="decision-grid">
+
+                    <div class="decision-block decision-block--approve">
+                        <div class="decision-block__icon">✅</div>
+                        <h4 class="decision-block__title">Одобренный отчёт</h4>
+                        <p class="decision-block__text">
+                            Ставим отметку <strong>✅</strong>. Если в отчёте есть мелкие замечания —
+                            указываем их в ветке, но отчёт одобряем.
+                        </p>
+                    </div>
+
+                    <div class="decision-block decision-block--refuse">
+                        <div class="decision-block__icon">❌</div>
+                        <h4 class="decision-block__title">Отказанный отчёт</h4>
+                        <p class="decision-block__text">
+                            Ставим отметку <strong>❌</strong> и <strong>обязательно</strong> прописываем
+                            все ошибки, которые допустил военнослужащий.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="info-box" style="margin-top: 24px;">
+                    <p>
+                        Для того чтобы оставить комментарий к отчёту, создайте <strong>ветку</strong>,
+                        нажав на три точки возле отчёта. Это позволяет дать обратную связь,
+                        не отказывая в отчёте из-за мелких недочётов.
+                    </p>
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📤 После проверки</h2>
+                <div class="info-box">
+                    <p>
+                        Каждый <strong>одобренный отчёт</strong> необходимо отправлять в соответствующий канал.
+                    </p>
+                    <p>
+                        ⚠ Регулярное забытие об этом ведёт к <strong>изъятию Формы допуска №2</strong>.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

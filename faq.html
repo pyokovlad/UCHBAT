@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ стажёру | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link active">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="main">
+
+        
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">FAQ стажёру</h1>
+                <p class="page-header__subtitle">Приветствуем тебя, стажер. Здесь собраны ответы на главные вопросы.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="faq">
+
+                
+                <div class="faq__category">
+                    <h2 class="faq__category-title">📋 Общие вопросы</h2>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Что такое Учебный батальон?</summary>
+                        <div class="faq__answer">
+                            <p>
+                                Учебный батальон — подразделение 1-й мотострелковой бригады,
+                                ответственное за подготовку военнослужащих. Здесь проводятся лекции,
+                                тренировки, экзамены, призыв и переаттестация личного состава.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Что такое спецсвязь и как в неё вступить?</summary>
+                        <div class="faq__answer">
+                            <p>
+                                Спецсвязь — это Discord-сервер для оперативной связи с командованием.
+                                Вступить можно по ссылке или через форум:
+                                <strong>forum.rmrp.ru → Кутузовский → Организации → Гос. Организации → Армия → Спецсвязь (Discord)</strong>.
+                                В канале «получение роли» нажми кнопку «ВС РФ», заполни фамилию, имя и статик, затем отправь.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Какие документы нужны при призыве?</summary>
+                        <div class="faq__answer">
+                            <p>При себе необходимо иметь:</p>
+                            <ul>
+                                <li>Паспорт (полное имя, не сокращённое)</li>
+                                <li>Водительское удостоверение (не просроченное)</li>
+                                <li>Медицинскую книжку и справку от нарколога</li>
+                                <li>Личное дело (без активных судимостей)</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                
+                <div class="faq__category">
+                    <h2 class="faq__category-title">📚 Лекции и тренировки</h2>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Как проводится лекция?</summary>
+                        <div class="faq__answer">
+                            <p>Порядок проведения лекции:</p>
+                            <ul>
+                                <li>Отпиши в рацию: <em>УБ | УР, ВА, в [время] будет лекция [название] в лекционной [номер]</em></li>
+                                <li>Продублируй оповещение в Discord-канал</li>
+                                <li>Посади личный состав на стулья, попроси зафиксировать todo</li>
+                                <li>Откинь todo, включи демонстрацию экрана и проведи лекцию</li>
+                                <li>По завершении снова откинь todo и попроси зафиксировать</li>
+                            </ul>
+                            <p>Минимальное время проведения лекции — <strong>10 минут</strong>.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Что такое todo и как его использовать?</summary>
+                        <div class="faq__answer">
+                            <p>
+                                <strong>todo</strong> — это фиксация начала или окончания тренировки, лекции или присяги.
+                                Боец присягнул — todo нужно откинуть в чат «Рядом».
+                                Это подтверждение того, что мероприятие фактически началось или закончилось.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Какие виды лекций и тренировок существуют?</summary>
+                        <div class="faq__answer">
+                            <p>Учебный батальон проводит следующие занятия:</p>
+                            <ul>
+                                <li>Вступительная лекция</li>
+                                <li>Лекция по профориентации</li>
+                                <li>Лекция по уставу ВС РФ</li>
+                                <li>Тренировка по физической подготовке</li>
+                                <li>Тренировка по строевой подготовке</li>
+                                <li>Курс по караульно-постовой службе и вождению</li>
+                            </ul>
+                    
+                            <div class="faq__note">
+                                <p><strong>⚠ Проводятся другими подразделениями:</strong></p>
+                                <ul>
+                                    <li><strong>Курс огневой подготовки</strong> — проводит подразделение <strong>ССО</strong></li>
+                                    <li><strong>Лекция по медицинской подготовке</strong> — проводит <strong>Медицинская рота (МР)</strong>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                            <p>Подробнее — в разделе <a href="lectures.html">«Лекции и тренировки»</a>.</p>
+                        </div>
+                    </details>
+                </div>
+
+                
+                <div class="faq__category">
+                    <h2 class="faq__category-title">📄 Документы и допуски</h2>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Как пользоваться таблицей для рации и отчётов?</summary>
+                        <div class="faq__answer">
+                            <ol>
+                                <li>Запроси доступ к таблице</li>
+                                <li>Сделай копию «Листа Алексей Левицкий»</li>
+                                <li>Название измени на свои Имя и Фамилию</li>
+                                <li>Подбей данные под себя и пользуйся</li>
+                            </ol>
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Что такое формы допуска и как их получить?</summary>
+                        <div class="faq__answer">
+                            <p>Существует три формы допуска:</p>
+                            <ul>
+                                <li><strong>1-я форма</strong> — с Младшего сержанта. Даёт право проводить лекции, тренировки и присягу.</li>
+                                <li><strong>2-я форма</strong> — со Старшего сержанта. Даёт право проверять отчёты на повышение.</li>
+                                <li><strong>3-я форма</strong> — со Старшего сержанта. Даёт право проводить итоговый экзамен для Ефрейторов.</li>
+                            </ul>
+                            <p>При нарушении правил допуск изымается. Подробнее — в разделе <a href="access.html">«Формы допуска»</a>.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Как проверяются отчёты?</summary>
+                        <div class="faq__answer">
+                            <p>
+                                Отчёты проверяются с должности Старшего сержанта при наличии специального допуска.
+                                На постах и поставках обязательно наличие боди-камеры.
+                                На лекциях, тренировках и присяге должно быть 2 скриншота (начало и конец).
+                                На одобренный отчёт ставится ✅, на отказанный — ❌.
+                            </p>
+                        </div>
+                    </details>
+                </div>
+
+                
+                <div class="faq__category">
+                    <h2 class="faq__category-title">🛡 Служба и экзамены</h2>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Какие есть посты и наряды?</summary>
+                        <div class="faq__answer">
+                            <ul>
+                                <li><strong>Дежурный по части (ДПЧ)</strong> — от Младшего лейтенанта</li>
+                                <li><strong>Дежурный на КПП</strong> — от Старшины</li>
+                                <li><strong>Дежурный водитель</strong> — от Старшего сержанта с военным билетом</li>
+                                <li><strong>Агитационная стойка</strong> — на КПП-1, в офисной форме без оружия</li>
+                            </ul>
+                            <p>Подробнее — в разделе <a href="posts.html">«Посты и наряды»</a>.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">Как проводится экзамен?</summary>
+                        <div class="faq__answer">
+                            <p>Экзамен проводится со звания Старшего сержанта при наличии допуска:</p>
+                            <ul>
+                                <li>Время проведения — 15 минут</li>
+                                <li>Военнослужащий имеет право на 3 подсказки</li>
+                                <li>Всего 40 вопросов, проходной балл — 28 из 40</li>
+                                <li>3 попытки на пересдачу, КД на пересдачу — 3 часа</li>
+                                <li>После 3 неудач — 4-я попытка устной сдачи, затем увольнение</li>
+                            </ul>
+                            <p>Подробнее — в разделе <a href="exams.html">«Экзамены»</a>.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__question">За что можно попасть в чёрный список?</summary>
+                        <div class="faq__answer">
+                            <ul>
+                                <li>Непрохождение Учебной роты и Военной Академии — 14 дней ЧС</li>
+                                <li>Досрочное окончание срочной службы — 14 дней ЧС</li>
+                                <li>Самовольный разрыв контракта/повестки (лив багом) — 50 дней ЧС</li>
+                                <li>Массовые нарушения ВУ ВС РФ (ОПП) — 30 дней ЧС</li>
+                            </ul>
+                            <p>Подробнее — в разделе <a href="blacklist.html">«Чёрный список»</a>.</p>
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

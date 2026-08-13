@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструменты | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link active">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="main">
+
+        
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Инструменты</h1>
+                <p class="page-header__subtitle">Генераторы рапортов, докладов и отчётов.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            
+            <div class="tabs">
+                <button class="tab-btn tab-btn--active" onclick="switchTab('tab-radio', this)">📻 Рация и доклады</button>
+                <button class="tab-btn" onclick="switchTab('tab-education', this)">📚 Обучение</button>
+                <button class="tab-btn" onclick="switchTab('tab-reports', this)">📋 Отчётность</button>
+            </div>
+
+            <!-- ============================================================
+                 ВКЛАДКА 1: РАЦИЯ И ДОКЛАДЫ
+                 ============================================================ -->
+            <div class="tab-content tab-content--active" id="tab-radio">
+
+                
+                <div class="generator-card">
+                    <h3 class="generator-card__title">📋 Доклад с поста</h3>
+                    <p class="generator-card__desc">Формирование доклада о заступлении, поминутного доклада или сдачи поста.</p>
+
+                    <div class="generator-card__form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Звание</label>
+                                <select class="form-select" id="post-rank">
+                                    <option value="Рядовой">Рядовой</option>
+                                    <option value="Ефрейтор">Ефрейтор</option>
+                                    <option value="Мл. сержант">Мл. сержант</option>
+                                    <option value="Сержант">Сержант</option>
+                                    <option value="Ст. сержант">Ст. сержант</option>
+                                    <option value="Старшина">Старшина</option>
+                                    <option value="Прапорщик">Прапорщик</option>
+                                    <option value="Ст. прапорщик">Ст. прапорщик</option>
+                                    <option value="Мл. лейтенант">Мл. лейтенант</option>
+                                    <option value="Лейтенант">Лейтенант</option>
+                                    <option value="Ст. лейтенант">Ст. лейтенант</option>
+                                    <option value="Капитан">Капитан</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Фамилия</label>
+                                <input type="text" class="form-input" id="post-surname" placeholder="Иванов">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Пост</label>
+                                <select class="form-select" id="post-post">
+                                    <option value="Штаб">Штаб</option>
+                                    <option value="КПП-1">КПП-1</option>
+                                    <option value="КПП-2">КПП-2</option>
+                                    <option value="Вышка">Вышка</option>
+                                    <option value="ДПЧ">ДПЧ</option>
+                                    <option value="Дежурный водитель">Дежурный водитель</option>
+                                    <option value="Агитационная стойка">Агитационная стойка</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Состав</label>
+                                <input type="number" class="form-input" id="post-squad" value="1" min="1">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Код</label>
+                                <input type="number" class="form-input" id="post-code" value="1" min="1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Тип доклада</label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="post-type" value="status" checked onchange="togglePostType()">
+                                    <span>Статус (Принял/Сдал)</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="post-type" value="minutes" onchange="togglePostType()">
+                                    <span>Поминутный</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="post-status-block">
+                            <label class="form-label">Статус</label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="post-status" value="Принял" checked>
+                                    <span>Принял</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="post-status" value="Сдал">
+                                    <span>Сдал</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="post-minutes-block" style="display: none;">
+                            <label class="form-label">Минуты</label>
+                            <select class="form-select" id="post-minutes">
+                                <option value="20">20 минут</option>
+                                <option value="40">40 минут</option>
+                                <option value="60">60 минут</option>
+                                <option value="80">80 минут</option>
+                                <option value="100">100 минут</option>
+                                <option value="120">120 минут</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn-generate" onclick="generatePost()">⚡ Сформировать</button>
+                    <div class="output-box" id="output-post">Результат появится здесь...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-post', this)">📋 Копировать</button>
+                </div>
+
+                
+                <div class="generator-card">
+                    <h3 class="generator-card__title">📻 Вызов в рацию</h3>
+                    <p class="generator-card__desc">Формирование вызова для игровой рации. Текст автоматически переводится в верхний регистр.</p>
+
+                    <div class="generator-card__form">
+                        <div class="form-group">
+                            <label class="form-label">К кому обращаемся</label>
+                            <select class="form-select" id="radio-target">
+                                <option value="УБ">УБ (Учебный батальон)</option>
+                                <option value="ВА">ВА (Военная академия)</option>
+                                <option value="УР">УР (Учебная рота)</option>
+                                <option value="УБ, ВА, УР">УБ, ВА, УР (всем подразделениям)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Текст сообщения</label>
+                            <textarea class="form-textarea" id="radio-text" rows="3" placeholder="Становись на вечернюю поверку. Форма одежды №1"></textarea>
+                        </div>
+                    </div>
+
+                    <button class="btn-generate" onclick="generateRadio()">⚡ Сформировать</button>
+                    <div class="output-box" id="output-radio">Результат появится здесь...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-radio', this)">📋 Копировать</button>
+                </div>
+
+            </div>
+
+            <!-- ============================================================
+                 ВКЛАДКА 2: ОБУЧЕНИЕ
+                 ============================================================ -->
+            <div class="tab-content" id="tab-education">
+
+                
+                <div class="generator-card">
+                    <h3 class="generator-card__title">📚 Лекция / Тренировка</h3>
+                    <p class="generator-card__desc">Формирование команды /todo для начала или окончания занятия. Время подставляется автоматически.</p>
+
+                    <div class="generator-card__form">
+                        <div class="form-group">
+                            <label class="form-label">Действие</label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="lecture-action" value="начали" checked>
+                                    <span>Начали</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="lecture-action" value="закончили">
+                                    <span>Закончили</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Занятие</label>
+                            <select class="form-select" id="lecture-activity">
+                                <option value="Вступительную лекцию">Вступительная лекция</option>
+                                <option value="Лекцию по профориентации">Лекция по профориентации</option>
+                                <option value="Лекцию по уставу ВС РФ">Лекция по уставу ВС РФ</option>
+                                <option value="Лекцию по медицинской подготовке">Лекция по медицинской подготовке</option>
+                                <option value="Тренировку по физической подготовке">Тренировка по физической подготовке</option>
+                                <option value="Тренировку по строевой подготовке">Тренировка по строевой подготовке</option>
+                                <option value="Курс огневой подготовки">Курс огневой подготовки</option>
+                                <option value="Курс по КПС и вождению">Курс по КПС и вождению</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn-generate" onclick="generateLecture()">⚡ Сформировать</button>
+                    <div class="output-box" id="output-lecture">Результат появится здесь...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-lecture', this)">📋 Копировать</button>
+                </div>
+
+                
+                <div class="generator-card">
+                    <h3 class="generator-card__title">🇷🇺 Присяга</h3>
+                    <p class="generator-card__desc">Формирование /todo для торжественной присяги. Звание всегда «Рядовой».</p>
+
+                    <div class="generator-card__form">
+                        <div class="form-group">
+                            <label class="form-label">ФИО военнослужащего</label>
+                            <input type="text" class="form-input" id="oath-fio" placeholder="Артём Бобриков">
+                        </div>
+                    </div>
+
+                    <button class="btn-generate" onclick="generateOath()">⚡ Сформировать</button>
+                    <div class="output-box" id="output-oath">Результат появится здесь...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-oath', this)">📋 Копировать</button>
+                </div>
+
+                
+                <div class="generator-card">
+                    <h3 class="generator-card__title">📝 Экзамен</h3>
+                    <p class="generator-card__desc">Формирование /todo для результатов экзамена.</p>
+
+                    <div class="generator-card__form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Звание</label>
+                                <select class="form-select" id="exam-rank">
+                                    <option value="Рядовой">Рядовой</option>
+                                    <option value="Ефрейтор" selected>Ефрейтор</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">ФИО</label>
+                                <input type="text" class="form-input" id="exam-fio" placeholder="Артём Глазов">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Результат</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="exam-result" value="сдал" checked>
+                                        <span>Сдал</span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="exam-result" value="не сдал">
+                                        <span>Не сдал</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Попытка</label>
+                                <select class="form-select" id="exam-attempt">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Баллы (из 40)</label>
+                                <input type="number" class="form-input" id="exam-points" min="0" max="40" value="28">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-generate" onclick="generateExam()">⚡ Сформировать</button>
+                    <div class="output-box" id="output-exam">Результат появится здесь...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-exam', this)">📋 Копировать</button>
+                </div>
+
+                
+                <div class="generator-card">
+                    <h3 class="generator-card__title">📢 Объявления</h3>
+                    <p class="generator-card__desc">Анонсы для игровой рации и Discord с автоматической подстановкой ссылок и тегов.</p>
+
+                    <div class="generator-card__form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Платформа</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="ann-platform" value="radio" checked onchange="toggleAnnPlatform()">
+                                        <span>Игровая рация</span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="ann-platform" value="discord" onchange="toggleAnnPlatform()">
+                                        <span>Discord</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Подразделение</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="ann-target" value="УР" checked>
+                                        <span>УР</span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="ann-target" value="ВА">
+                                        <span>ВА</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Часы</label>
+                                <input type="number" class="form-input" id="ann-hours" min="0" max="23" value="14">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Минуты</label>
+                                <input type="number" class="form-input" id="ann-minutes" min="0" max="59" value="30">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Мероприятие</label>
+                                <select class="form-select" id="ann-activity">
+                                    <option value="Вступительная лекция">Вступительная лекция</option>
+                                    <option value="Лекция по профориентации">Лекция по профориентации</option>
+                                    <option value="Лекция по уставу ВС РФ">Лекция по уставу ВС РФ</option>
+                                    <option value="Тренировка по физической подготовке">Тренировка по физической подготовке</option>
+                                    <option value="Итоговый экзамен">Итоговый экзамен</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="ann-room-block">
+                            <label class="form-label">Номер кабинета</label>
+                            <select class="form-select" id="ann-room">
+                                <option value="1">Учебный класс №1</option>
+                                <option value="2">Учебный класс №2</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="ann-channel-block" style="display: none;">
+                            <label class="form-label">Номер лекционной</label>
+                            <select class="form-select" id="ann-channel">
+                                <option value="1">Лекционная №1</option>
+                                <option value="2">Лекционная №2</option>
+                                <option value="3">Лекционная №3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn-generate" onclick="generateAnnouncement()">⚡ Сформировать</button>
+                    <div class="output-box" id="output-announcement">Результат появится здесь...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-announcement', this)">📋 Копировать</button>
+                </div>
+
+            </div>
+
+            <!-- ============================================================
+                 ВКЛАДКА 3: ОТЧЁТНОСТЬ
+                 ============================================================ -->
+            <div class="tab-content" id="tab-reports">
+
+                
+                <div class="generator-card">
+                    <h3 class="generator-card__title">📋 Ежедневный отчёт</h3>
+                    <p class="generator-card__desc">Формирование ежедневного рапорта о проведённых мероприятиях.</p>
+
+                    <div class="generator-card__form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">ФИО</label>
+                                <input type="text" class="form-input" id="daily-fio" placeholder="Алексей Левицкий">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Статик (XXX-XXX)</label>
+                                <input type="text" class="form-input form-input--mono" id="daily-static" placeholder="000-000" maxlength="7">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Категория мероприятий</label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="daily-category" value="lectures" checked onchange="toggleDailyCategory()">
+                                    <span>📚 Лекции</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="daily-category" value="trainings" onchange="toggleDailyCategory()">
+                                    <span>🏃 Тренировки</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="daily-category" value="courses" onchange="toggleDailyCategory()">
+                                    <span>🎓 Курсы</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="daily-category" value="other" onchange="toggleDailyCategory()">
+                                    <span>🎖 Прочее</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        
+                        <div class="daily-category-block" id="daily-lectures">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Вступительная лекция">
+                                <span>Вступительная лекция</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Лекция по профориентации">
+                                <span>Лекция по профориентации</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Лекция по уставу ВС РФ">
+                                <span>Лекция по уставу ВС РФ</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Лекция по медицинской подготовке">
+                                <span>Лекция по медицинской подготовке</span>
+                            </label>
+                        </div>
+
+                        
+                        <div class="daily-category-block" id="daily-trainings" style="display: none;">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Тренировка по физической подготовке">
+                                <span>Физическая подготовка</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Тренировка по строевой подготовке">
+                                <span>Строевая подготовка</span>
+                            </label>
+                        </div>
+
+                        
+                        <div class="daily-category-block" id="daily-courses" style="display: none;">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Курс огневой подготовки">
+                                <span>Огневая подготовка</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Курс по КПС и вождению">
+                                <span>КПС и вождение</span>
+                            </label>
+                        </div>
+
+                        
+                        <div class="daily-category-block" id="daily-other" style="display: none;">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Приведение к присяге">
+                                <span>Присяга</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="daily-activity" value="Единый экзамен">
+                                <span>Единый экзамен</span>
+                            </label>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Дата</label>
+                                <input type="date" class="form-input" id="daily-date">
+                            </div>
+                            <div class="form-group form-group--checkbox">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="daily-today" onchange="setTodayDate()">
+                                    <span>Сегодняшняя</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Количество</label>
+                                <input type="number" class="form-input" id="daily-count" min="1" value="1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Ссылка на фотохостинг <span class="form-label--muted">(необязательно)</span></label>
+                            <input type="text" class="form-input" id="daily-link" placeholder="https://imgur.com/...">
+                        </div>
+                    </div>
+
+                    <button class="btn-generate" onclick="generateDailyReport()">⚡ Сформировать</button>
+                    <div class="output-box" id="output-daily">Результат появится здесь...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-daily', this)">📋 Копировать</button>
+                </div>
+
+                
+                <div class="generator-card generator-card--wide">
+                    <h3 class="generator-card__title">🧮 Подсчёт баллов</h3>
+                    <p class="generator-card__desc">Интерактивный калькулятор баллов с автоматическим пересчётом и группировкой.</p>
+
+                    <div class="points-calc">
+
+                        
+                        <div class="points-calc__group">
+                            <h4 class="points-calc__group-title">📚 Лекции</h4>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Проведение лекции (минимум 2 человека)</span>
+                                <span class="points-calc__points">50</span>
+                                <input type="number" class="points-calc__input" data-points="50" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Проведение лекции (минимум 6+ человек)</span>
+                                <span class="points-calc__points">70</span>
+                                <input type="number" class="points-calc__input" data-points="70" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="points-calc__group">
+                            <h4 class="points-calc__group-title">🏃 Тренировки, курсы, присяга, экзамены</h4>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Проведение тренировки по физической подготовке</span>
+                                <span class="points-calc__points">40</span>
+                                <input type="number" class="points-calc__input" data-points="40" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Проведение курса по огневой подготовки для ВА</span>
+                                <span class="points-calc__points">80</span>
+                                <input type="number" class="points-calc__input" data-points="80" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Проведение курса по строевой подготовки для ВА</span>
+                                <span class="points-calc__points">80</span>
+                                <input type="number" class="points-calc__input" data-points="80" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Проведение курса по КПС и вождению</span>
+                                <span class="points-calc__points">80</span>
+                                <input type="number" class="points-calc__input" data-points="80" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Проведение единого экзамена</span>
+                                <span class="points-calc__points">20</span>
+                                <input type="number" class="points-calc__input" data-points="20" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Приведение к присяге (за военнослужащего)</span>
+                                <span class="points-calc__points">10</span>
+                                <input type="number" class="points-calc__input" data-points="10" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="points-calc__group">
+                            <h4 class="points-calc__group-title">🎖 Посты, поставки, призыв, поверка и прочее</h4>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Участие в ГМП (не менее 3-х фракций)</span>
+                                <span class="points-calc__points">70</span>
+                                <input type="number" class="points-calc__input" data-points="70" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Несение постовой службы агитационной стойки на КПП-1</span>
+                                <span class="points-calc__points">100</span>
+                                <input type="number" class="points-calc__input" data-points="100" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Ответ на звонок о вступлении во фракцию</span>
+                                <span class="points-calc__points">5</span>
+                                <input type="number" class="points-calc__input" data-points="5" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Участие в поставке</span>
+                                <span class="points-calc__points">50</span>
+                                <input type="number" class="points-calc__input" data-points="50" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Участие в мероприятиях по призыву</span>
+                                <span class="points-calc__points">100</span>
+                                <input type="number" class="points-calc__input" data-points="100" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Участие в отбитии складов и КрАЗ</span>
+                                <span class="points-calc__points">30</span>
+                                <input type="number" class="points-calc__input" data-points="30" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Участие в вечерней поверке</span>
+                                <span class="points-calc__points">40</span>
+                                <input type="number" class="points-calc__input" data-points="40" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Рассмотрение рапорта на повышения военнослужащих</span>
+                                <span class="points-calc__points">30</span>
+                                <input type="number" class="points-calc__input" data-points="30" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Принятие гражданина вне призывных мероприятий</span>
+                                <span class="points-calc__points">50</span>
+                                <input type="number" class="points-calc__input" data-points="50" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Реанимация военнослужащего/гражданского</span>
+                                <span class="points-calc__points">5</span>
+                                <input type="number" class="points-calc__input" data-points="5" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Благодарность</span>
+                                <span class="points-calc__points">1</span>
+                                <input type="number" class="points-calc__input" data-points="1" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+
+                            <div class="points-calc__row">
+                                <span class="points-calc__name">Пост «Дежурный водитель»</span>
+                                <span class="points-calc__points">100</span>
+                                <input type="number" class="points-calc__input" data-points="100" value="0" min="0" oninput="recalcPoints()">
+                                <span class="points-calc__total">0</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="points-calc__grand-total">
+                        <span>🏆 Общее количество баллов:</span>
+                        <span class="points-calc__grand-value" id="points-grand-total">0</span>
+                    </div>
+
+                    <label class="checkbox-item points-calc__checkbox">
+                        <input type="checkbox" id="only-non-zero" checked>
+                        <span>Выводить только ненулевые значения</span>
+                    </label>
+
+                    <button class="btn-generate" onclick="generatePointsReport()">⚡ Сформировать отчёт</button>
+                    <div class="output-box" id="output-points">Заполни таблицу и нажми «Сформировать отчёт»...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-points', this)">📋 Копировать</button>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

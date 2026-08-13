@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экзамены | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link active">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="main">
+
+        
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Экзамены</h1>
+                <p class="page-header__subtitle">Правила проведения итогового экзамена для Ефрейторов.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            
+            <section class="section">
+                <h2 class="section__title">📊 Параметры экзамена</h2>
+                <div class="metrics-grid">
+
+                    <div class="metric-card">
+                        <div class="metric-card__icon">⏱</div>
+                        <div class="metric-card__value">15 мин</div>
+                        <div class="metric-card__label">Время проведения</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-card__icon">📝</div>
+                        <div class="metric-card__value">40</div>
+                        <div class="metric-card__label">Вопросов в тесте</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-card__icon">🎯</div>
+                        <div class="metric-card__value">28 / 40</div>
+                        <div class="metric-card__label">Проходной балл</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-card__icon">🔄</div>
+                        <div class="metric-card__value">3 + 1</div>
+                        <div class="metric-card__label">Попытки (4-я устная)</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-card__icon">💡</div>
+                        <div class="metric-card__value">3</div>
+                        <div class="metric-card__label">Подсказки</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-card__icon">⏳</div>
+                        <div class="metric-card__value">3 часа</div>
+                        <div class="metric-card__label">КД на пересдачу</div>
+                    </div>
+
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📋 Порядок проведения экзамена</h2>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step__number">1</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Объявление</h4>
+                            <p class="step__text">
+                                Объяви в рацию и в канал оповещений о проведении экзамена.
+                                Например: <em>ВК | ВА, внимание! В [время] пройдёт экзамен! Всех ожидаю в лекционной №1</em>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">2</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Сбор военнослужащих</h4>
+                            <p class="step__text">
+                                Дождись военнослужащих и направь их в голосовой канал Discord. <strong>(экзамен проводится строго тет-а-тет)</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">3</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Правила и демонстрация</h4>
+                            <p class="step__text">
+                                Расскажи правила проведения экзамена и попроси включить демонстрацию экрана.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">4</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Выбор варианта</h4>
+                            <p class="step__text">
+                                Возьми ссылку на Google-форму (любой вариант). Предварительно проверь по ID,
+                                не проходил ли военнослужащий этот тест ранее.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">5</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Отправка ссылки</h4>
+                            <p class="step__text">
+                                Скинь ссылку в <strong>личные сообщения</strong> военнослужащему. Он начинает проходить экзамен.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">6</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Оглашение результатов</h4>
+                            <p class="step__text">
+                                После окончания экзамена <strong>устно</strong> сообщи результаты военнослужащему.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">7</div>
+                        <div class="step__content">
+                            <h4 class="step__title">Отчёт</h4>
+                            <p class="step__text">
+                                Отпиши результат в чат по форме:
+                                <em>/todo Ефрейтор [фамилия] успешно сдал экзамен, набрав [баллы] из 40 * Время на часах [время]</em>.
+                                Результат обязательно отправь в отчёт на обучение.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📝 Варианты экзаменов</h2>
+
+                <div class="warning-box">
+                    <p>
+                        ⚠ <strong>Внимание!</strong> Ссылки на экзамены нигде не распространяются,
+                        кроме как в <strong>личные сообщения</strong> для сдачи экзамена!
+                    </p>
+                </div>
+
+                <div class="exam-cards">
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSet44QRnRoix9zlWorGxlLkmaYvX33KgKxOjG-ZppcvohVXiw/viewform" target="_blank" class="exam-card">
+                        <div class="exam-card__icon">📄</div>
+                        <h4 class="exam-card__title">Первый вариант</h4>
+                        <p class="exam-card__text">40 вопросов</p>
+                    </a>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScDO7zkkzEQ1R2wamWuMKWCphAoELYvXCxt80NYXw15z94Bwg/viewform" target="_blank" class="exam-card">
+                        <div class="exam-card__icon">📄</div>
+                        <h4 class="exam-card__title">Второй вариант</h4>
+                        <p class="exam-card__text">40 вопросов</p>
+                    </a>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdng138qDY_aF_15mpkR-7y3SQDTETVCI8K8BHaK6PjupdFpg/viewform" target="_blank" class="exam-card">
+                        <div class="exam-card__icon">📄</div>
+                        <h4 class="exam-card__title">Третий вариант</h4>
+                        <p class="exam-card__text">40 вопросов</p>
+                    </a>
+
+                    <a href="https://docs.google.com/spreadsheets/d/1Ufu5gr1o_AMZWKh3dMVCrEqyl7AKAGyRcD8GKGH-nNg/edit" target="_blank" class="exam-card exam-card--results">
+                        <div class="exam-card__icon">📊</div>
+                        <h4 class="exam-card__title">Результаты экзаменов</h4>
+                        <p class="exam-card__text">Таблица результатов</p>
+                    </a>
+
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">🎖 Допуск и баллы</h2>
+                <div class="info-box">
+                    <p>
+                        Для проведения экзаменов необходимо получить <strong>Форму допуска №3</strong>,
+                        которая выдаётся со звания <strong>Старший сержант</strong>.
+                        Проводить экзамен разрешено даже у одного военнослужащего.
+                    </p>
+                    <p>
+                        За проведение единого экзамена начисляется <strong>20 баллов за каждого военнослужащего</strong>.
+                        При нарушении правил проведения или чрезмерных подсказках допуск изымается.
+                    </p>
+                    <a href="access.html" class="btn btn--small">Подробнее о Форме допуска №3</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посты и наряды | Учебный батальон</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Эмблема Учебного батальона" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">Учебный батальон</span>
+                    <span class="brand__subtitle">1-я мотострелковая бригада • RMRP Кутузовский</span>
+                </div>
+            </a>
+
+            <div class="search">
+                <input
+                    type="text"
+                    class="search__input"
+                    id="searchInput"
+                    placeholder="Поиск по сайту..."
+                    autocomplete="off"
+                >
+                <button class="search__clear" id="searchClear" type="button" aria-label="Очистить">x</button>
+                <div class="search__results" id="searchResults"></div>
+            </div>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    
+    <nav class="nav" id="mainNav">
+        <div class="container nav__inner">
+            <div class="nav__group">
+                <span class="nav__group-label">Обучение</span>
+                <a href="index.html" class="nav__link">🏠 Главная</a>
+                <a href="faq.html" class="nav__link">FAQ стажёру</a>
+                <a href="lectures.html" class="nav__link">Лекции и тренировки</a>
+                <a href="access.html" class="nav__link">Формы допуска</a>
+                <a href="exams.html" class="nav__link">Экзамены</a>
+                <a href="reattestation.html" class="nav__link">Переаттестация</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Служба</span>
+                <a href="posts.html" class="nav__link active">Посты и наряды</a>
+                <a href="recruitment.html" class="nav__link">Призыв</a>
+                <a href="reports.html" class="nav__link">Проверка отчётов</a>
+                <a href="blacklist.html" class="nav__link">Чёрный список</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Карьера</span>
+                <a href="promotion.html" class="nav__link">Система повышения</a>
+                <a href="points.html" class="nav__link">Балловая система</a>
+            </div>
+            <div class="nav__group">
+                <span class="nav__group-label">Прочее</span>
+                <a href="tools.html" class="nav__link">🛠 Инструменты</a>
+                <a href="resources.html" class="nav__link">Ресурсы</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="main">
+
+        
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Посты и наряды</h1>
+                <p class="page-header__subtitle">Порядок несения службы, форма одежды и обязанности на каждом посту.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            
+            <section class="section">
+                <div class="posts-grid">
+
+                    
+                    <div class="post-card">
+                        <div class="post-card__header">
+                            <h3 class="post-card__title">Дежурный по части (ДПЧ)</h3>
+                            <span class="post-card__rank">от Мл. лейтенанта</span>
+                        </div>
+
+                        <div class="post-card__form">
+                            <span class="post-card__form-label">👔 Форма одежды:</span>
+                            <span class="post-card__form-value">Офисная с коротким рукавом</span>
+                        </div>
+
+                        <div class="post-card__section">
+                            <h4 class="post-card__section-title">Обязанности</h4>
+                            <ul class="post-card__duties">
+                                <li>Проведение регулярных проверок и инспекций дежурных постов</li>
+                                <li>Организация дежурств и смен для бесперебойной работы части</li>
+                                <li>Контроль соблюдения дисциплины и порядка среди дежурного состава</li>
+                                <li>Немедленно сообщать командованию о происшествиях и нарушениях</li>
+                                <li>По прибытии Командира бригады (или заместителя, начальника штаба) подать команду <strong>«Смирно»</strong> и доложить по форме</li>
+                                <li>Сообщать личному составу и гос. структурам о сигналах ограбления</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    
+                    <div class="post-card">
+                        <div class="post-card__header">
+                            <h3 class="post-card__title">Дежурный на КПП</h3>
+                            <span class="post-card__rank">от Старшины</span>
+                        </div>
+
+                        <div class="post-card__form">
+                            <span class="post-card__form-label">🪖 Форма одежды:</span>
+                            <span class="post-card__form-value">Полевая №3 с оружием в руках</span>
+                            <span class="badge badge--weapon">🔫 С оружием</span>
+                        </div>
+
+                        <div class="post-card__section">
+                            <h4 class="post-card__section-title">Обязанности</h4>
+                            <ul class="post-card__duties">
+                                <li>Доклад о прибытии высшего командного состава в часть</li>
+                                <li>Сообщать о нарушениях и происшествиях</li>
+                                <li>Координация действий постовых</li>
+                                <li>Предотвращение конфликтов между гражданскими и военнослужащими</li>
+                            </ul>
+                        </div>
+
+                        <div class="post-card__note">
+                            Заступление в наряд — на КПП №1 внутри. Последующие доклады —
+                            на улице возле перил, рядом с банкоматом.
+                        </div>
+                    </div>
+
+                    
+                    <div class="post-card">
+                        <div class="post-card__header">
+                            <h3 class="post-card__title">Дежурный водитель</h3>
+                            <span class="post-card__rank">от Ст. сержанта + воен. билет</span>
+                        </div>
+
+                        <div class="post-card__form">
+                            <span class="post-card__form-label">👔 Форма одежды:</span>
+                            <span class="post-card__form-value">Офисная с коротким рукавом</span>
+                        </div>
+
+                        <div class="post-card__section">
+                            <h4 class="post-card__section-title">Обязанности</h4>
+                            <p class="post-card__desc">
+                                Дежурство на служебном автомобиле около штаба.
+                            </p>
+                            <ul class="post-card__duties">
+                                <li>Эвакуация служащих до звания Старшина</li>
+                                <li>Перевозка служащих по служебным задачам и по приказу дежурного по части</li>
+                            </ul>
+                        </div>
+
+                        <div class="post-card__points">
+                            🎖 100 баллов за каждые 60 минут (доклады каждые 20 минут)
+                        </div>
+                    </div>
+
+                    
+                    <div class="post-card">
+                        <div class="post-card__header">
+                            <h3 class="post-card__title">Агитационная стойка</h3>
+                            <span class="post-card__rank">от Мл. лейтенанта</span>
+                        </div>
+
+                        <div class="post-card__form">
+                            <span class="post-card__form-label">👔 Форма одежды:</span>
+                            <span class="post-card__form-value">Офисная без оружия в руках</span>
+                        </div>
+
+                        <div class="post-card__section">
+                            <h4 class="post-card__section-title">Обязанности</h4>
+                            <ul class="post-card__duties">
+                                <li>Пост стоится строго на КПП-1 и предназначен для агитации граждан на службу в ряды ВС РФ</li>
+                                <li>Отвечать на вопросы граждан о порядке заступления на службу</li>
+                                <li>Находиться строго у агитационной стойки</li>
+                            </ul>
+                        </div>
+
+                        <div class="post-card__points">
+                            🎖 100 баллов за каждые 60 минут (доклады каждые 20 минут)
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            
+            <section class="section">
+                <h2 class="section__title">📻 Доклады на постах</h2>
+                <div class="info-box">
+                    <p>
+                        На <strong> всех </strong> постах 
+                        доклады подаются <strong>каждые 20 минут</strong>. За каждые 60 минут несения службы
+                        начисляется 100 баллов. <strong>(за исключением случаев, когда пост несется для внебалловой системы)</strong>
+                    </p>
+                    <p>
+                        Для формирования доклада о заступлении, поминутного доклада или сдачи поста
+                        воспользуйся генератором в Инструментах.
+                    </p>
+                    <a href="tools.html" class="btn btn--small">🛠 Сформировать доклад в Инструментах</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    
+    
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__unit">
+                <p class="footer__line">Учебный батальон • 1-я мотострелковая бригада</p>
+                <p class="footer__line">Войсковая часть №12132 • RMRP Кутузовский</p>
+            </div>
+            
+            <div class="footer__developer">
+                <div class="footer__developer-icon">
+                    🛠
+                </div>
+                <div class="footer__developer-info">
+                    <span class="footer__developer-label">Разработано</span>
+                    <div class="footer__developer-name">pyoko</div>
+                    <div class="footer__developer-meta">
+                        <span>In-game: <strong>Владислав Боня</strong></span>
+                        <span class="footer__developer-divider">•</span>
+                        <a href="#" target="_blank" class="footer__developer-contact">@pyokovlad</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy">© 2026 Учебный батальон. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
