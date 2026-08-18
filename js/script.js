@@ -5,11 +5,13 @@
 
 /* --- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ --- */
 function getCurrentTime() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    return `${hours}:${minutes}`;
+    return new Date().toLocaleTimeString('ru-RU', {
+        timeZone: 'Europe/Moscow',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
 }
+
 
 function capitalizeWords(str) {
     return str.toLowerCase().split(' ').map(word =>
@@ -212,16 +214,19 @@ function setTodayDate() {
     if (!checkbox || !dateInput) return;
 
     if (checkbox.checked) {
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
-        dateInput.value = `${yyyy}-${mm}-${dd}`;
+        
+        const moscowDate = new Date().toLocaleDateString('en-CA', {
+            timeZone: 'Europe/Moscow'
+        });
+        
+        
+        dateInput.value = moscowDate;
         dateInput.readOnly = true;
     } else {
         dateInput.readOnly = false;
     }
 }
+
 
 function generateDailyReport() {
     const fio = document.getElementById('daily-fio').value.trim();
