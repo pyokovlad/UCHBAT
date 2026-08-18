@@ -3367,3 +3367,11 @@ a {
         width: 100%;
     }
 }
+
+
+.announcement__badge--fix {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
