@@ -264,7 +264,58 @@
                 </div>
             </section>
 
-            
+            <div class="generator-card">
+                    <h3 class="generator-card__title">📝 Экзамен</h3>
+                    <p class="generator-card__desc">Формирование /todo для результатов экзамена.</p>
+
+                    <div class="generator-card__form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Звание</label>
+                                <select class="form-select" id="exam-rank">
+                                    <option value="Рядовой">Рядовой</option>
+                                    <option value="Ефрейтор" selected>Ефрейтор</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">ФИО</label>
+                                <input type="text" class="form-input" id="exam-fio" placeholder="Артём Глазов">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Результат</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="exam-result" value="сдал" checked>
+                                        <span>Сдал</span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="exam-result" value="не сдал">
+                                        <span>Не сдал</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Попытка</label>
+                                <select class="form-select" id="exam-attempt">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Баллы (из 40)</label>
+                                <input type="number" class="form-input" id="exam-points" min="0" max="40" value="28">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-generate" onclick="generateExam()">⚡ Сформировать</button>
+                    <div class="output-box" id="output-exam">Результат появится здесь...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-exam', this)">📋 Копировать</button>
+                </div>
             <section class="section">
                 <h2 class="section__title">🎖 Допуск и баллы</h2>
                 <div class="info-box">
