@@ -3375,3 +3375,247 @@ a {
     border: 1px solid rgba(251, 191, 36, 0.3);
 }
 
+/* ============================================================
+   РОЗЫГРЫШ
+   ============================================================ */
+
+.giveaway {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 16px;
+    background:
+        linear-gradient(135deg, rgba(212, 175, 55, 0.10), transparent 45%),
+        var(--color-panel, #171a18);
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Верхняя часть */
+
+.giveaway__header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(212, 175, 55, 0.06);
+}
+
+.giveaway__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: rgba(212, 175, 55, 0.14);
+    font-size: 30px;
+}
+
+.giveaway__label {
+    display: block;
+    margin-bottom: 4px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #d4af37;
+}
+
+.giveaway__title {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Основной контент */
+
+.giveaway__content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 28px;
+    padding: 28px;
+}
+
+.giveaway__lead {
+    margin: 0 0 20px;
+    font-size: 18px;
+    line-height: 1.55;
+    font-weight: 600;
+}
+
+.giveaway__text {
+    margin: 18px 0;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.65;
+}
+
+.giveaway__text strong {
+    color: #fff;
+}
+
+/* Миллион */
+
+.giveaway__reward {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: rgba(212, 175, 55, 0.10);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.giveaway__reward-icon {
+    font-size: 30px;
+}
+
+.giveaway__reward-label {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.giveaway__reward-value {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    color: #d4af37;
+}
+
+/* Условие */
+
+.giveaway__condition {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    border-left: 3px solid #d4af37;
+    background: rgba(255, 255, 255, 0.035);
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.giveaway__condition-icon {
+    color: #d4af37;
+    font-weight: 700;
+}
+
+/* Главный приз */
+
+.giveaway__prize {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    border-radius: 14px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 70, 130, 0.22),
+            rgba(255, 255, 255, 0.025)
+        );
+    border: 1px solid rgba(80, 140, 210, 0.30);
+    text-align: center;
+}
+
+.giveaway__prize-label {
+    margin-bottom: 12px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.giveaway__car {
+    padding: 15px 0;
+}
+
+.giveaway__car-icon {
+    margin-bottom: 8px;
+    font-size: 54px;
+}
+
+.giveaway__car-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.giveaway__car-color {
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 14px;
+}
+
+.giveaway__price {
+    width: 100%;
+    margin-top: 14px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.giveaway__price span {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.giveaway__price strong {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Нижняя строка */
+
+.giveaway__footer {
+    padding: 15px 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.12);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* Адаптация под телефон */
+
+@media (max-width: 768px) {
+
+    .giveaway__header {
+        padding: 20px;
+    }
+
+    .giveaway__title {
+        font-size: 23px;
+    }
+
+    .giveaway__content {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .giveaway__reward-value {
+        font-size: 27px;
+    }
+
+    .giveaway__car-name {
+        font-size: 28px;
+    }
+
+    .giveaway__footer {
+        padding: 15px 20px;
+    }
+}
