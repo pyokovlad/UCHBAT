@@ -3379,7 +3379,7 @@ a {
    РОЗЫГРЫШ
    ============================================================ */
 
-.giveaway {
+/* .giveaway {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.45);
@@ -3618,4 +3618,4 @@ a {
     .giveaway__footer {
         padding: 15px 20px;
     }
-}
+} */
