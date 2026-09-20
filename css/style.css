@@ -3705,3 +3705,85 @@ a {
         transform: translateY(0);
     }
 }
+
+/* ============================================================
+   ССЫЛКИ НА СКРИНШОТЫ В КАЛЬКУЛЯТОРЕ БАЛЛОВ
+   ============================================================ */
+
+.points-screenshots {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.points-screenshots__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.points-screenshot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.points-screenshot__input {
+    flex: 1;
+    min-width: 0;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.points-screenshot__input:focus {
+    outline: none;
+    border-color: #888;
+}
+
+.points-screenshot__input::placeholder {
+    color: #999;
+}
+
+.points-screenshot__remove {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: #e9e9e9;
+    color: #555;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 32px;
+}
+
+.points-screenshot__remove:hover {
+    background: #ddd;
+}
+
+.points-screenshots__add {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: #e9e9e9;
+    color: #333;
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 36px;
+}
+
+.points-screenshots__add:hover {
+    background: #dcdcdc;
+}

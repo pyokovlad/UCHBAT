@@ -361,8 +361,7 @@ async function generateLecture() {
             getLecturePendingKey(identity.staticId, activity);
 
         if (localStorage.getItem(localKey)) {
-            showSiteNotification(
-                'Для этого занятия уже зафиксировано начало. Сначала завершите его.',
+            showSiteNotification('Для этого занятия уже зафиксировано начало. Сначала завершите его.',
                 'warning'
             );
             return;
@@ -737,26 +736,238 @@ function generateAnnouncement() {
     ).textContent = text;
 }
 
-function generatePoints() {
-    const points =
-        document.getElementById('points-value').value;
 
-    const reason =
-        document.getElementById('points-reason').value.trim();
+/* ============================================================
+   ПОДСЧЁТ БАЛЛОВ + ССЫЛКИ НА СКРИНШОТЫ
+   ============================================================ */
 
-    if (!reason) {
-        showSiteNotification('Введите основание.', 'warning');
-        return;
+function createScreenshotLinks(row) {
+    let container = row.querySelector('.points-screenshots');
+
+    if (container) {
+        return container;
     }
 
-    const result =
-        `Начисление: +${points} баллов | Основание: ${reason}`;
+    container = document.createElement('div');
+    container.className = 'points-screenshots';
 
-    document.getElementById(
-        'output-points'
-    ).textContent = result;
+    const linksList = document.createElement('div');
+    linksList.className = 'points-screenshots__list';
+
+    const addButton = document.createElement('button');
+    addButton.type = 'button';
+    addButton.className = 'points-screenshots__add';
+    addButton.textContent = '+';
+    addButton.title = 'Добавить ещё ссылку на скриншот';
+
+    addButton.addEventListener('click', () => {
+        addScreenshotInput(container);
+    });
+
+    container.appendChild(linksList);
+    container.appendChild(addButton);
+
+    row.appendChild(container);
+
+    addScreenshotInput(container);
+
+    return container;
 }
 
+
+function addScreenshotInput(container) {
+    const list = container.querySelector('.points-screenshots__list');
+
+    if (!list) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'points-screenshot';
+
+    const input = document.createElement('input');
+    input.type = 'url';
+    input.className = 'points-screenshot__input';
+    input.placeholder = 'Ссылка на скриншот';
+
+    const removeButton = document.createElement('button');
+    removeButton.type = 'button';
+    removeButton.className = 'points-screenshot__remove';
+    removeButton.textContent = '×';
+    removeButton.title = 'Удалить ссылку';
+
+    removeButton.addEventListener('click', () => {
+        wrapper.remove();
+
+        // Если удалили последнюю ссылку —
+        // оставляем одно пустое поле
+        if (!list.querySelector('.points-screenshot')) {
+            addScreenshotInput(container);
+        }
+    });
+
+    wrapper.appendChild(input);
+    wrapper.appendChild(removeButton);
+    list.appendChild(wrapper);
+
+    input.focus();
+}
+
+
+function updateScreenshotFields(row, count) {
+    let container = row.querySelector('.points-screenshots');
+
+    if (count > 0) {
+        if (!container) {
+            container = createScreenshotLinks(row);
+        }
+
+        container.style.display = 'flex';
+    } else {
+        if (container) {
+            container.style.display = 'none';
+        }
+    }
+}
+
+
+function getScreenshotLinks(row) {
+    const inputs = row.querySelectorAll('.points-screenshot__input');
+
+    return Array.from(inputs)
+        .map(input => input.value.trim())
+        .filter(Boolean);
+}
+
+
+function recalcPoints() {
+    const rows = document.querySelectorAll('.points-calc__row');
+    let grandTotal = 0;
+
+    rows.forEach(row => {
+        const input = row.querySelector('.points-calc__input');
+        const totalElement = row.querySelector('.points-calc__total');
+
+        if (!input || !totalElement) return;
+
+        const points = parseInt(input.dataset.points, 10) || 0;
+        const count = parseInt(input.value, 10) || 0;
+
+        const total = points * count;
+
+        totalElement.textContent = total;
+
+        grandTotal += total;
+
+        updateScreenshotFields(row, count);
+    });
+
+    const grandTotalElement = document.getElementById('points-grand-total');
+
+    if (grandTotalElement) {
+        grandTotalElement.textContent = grandTotal;
+    }
+}
+
+
+function generatePointsReport() {
+    if (!requireEmployeeIdentity()) return;
+
+    const onlyNonZero =
+        document.getElementById('only-non-zero')?.checked ?? true;
+
+    const rows =
+        document.querySelectorAll('.points-calc__row');
+
+    const lines = [];
+    let grandTotal = 0;
+
+    document.querySelectorAll('.points-calc__group').forEach(group => {
+
+        const groupTitle =
+            group.querySelector('.points-calc__group-title')?.textContent.trim() || '';
+
+        const groupLines = [];
+
+        group.querySelectorAll('.points-calc__row').forEach(row => {
+
+            const nameElement =
+                row.querySelector('.points-calc__name');
+
+            const input =
+                row.querySelector('.points-calc__input');
+
+            if (!nameElement || !input) return;
+
+            const name = nameElement.textContent.trim();
+
+            const points =
+                parseInt(input.dataset.points, 10) || 0;
+
+            const count =
+                parseInt(input.value, 10) || 0;
+
+            const total = points * count;
+
+            grandTotal += total;
+
+            // Обновляем отображение суммы строки
+            const totalElement =
+                row.querySelector('.points-calc__total');
+
+            if (totalElement) {
+                totalElement.textContent = total;
+            }
+
+            updateScreenshotFields(row, count);
+
+            // Если включено "только ненулевые"
+            // и количество равно 0 — не выводим строку
+            if (onlyNonZero && count === 0) {
+                return;
+            }
+
+            const screenshotLinks =
+                getScreenshotLinks(row);
+
+            let line =
+                `${name} [${count}/${points}] -`;
+
+            // Добавляем ссылки только если они действительно введены
+            if (screenshotLinks.length > 0) {
+                line += ` ${screenshotLinks.join(' ')}`;
+            }
+
+            groupLines.push(line);
+        });
+
+        if (groupLines.length > 0) {
+            lines.push(groupTitle);
+            lines.push(...groupLines);
+            lines.push('');
+        }
+    });
+
+    // Убираем лишнюю пустую строку в конце
+    while (lines.length && lines[lines.length - 1] === '') {
+        lines.pop();
+    }
+
+    lines.push('');
+    lines.push(`Итого: ${grandTotal} баллов`);
+
+    const output =
+        document.getElementById('output-points');
+
+    if (output) {
+        output.textContent = lines.join('\n');
+    }
+
+    const grandTotalElement =
+        document.getElementById('points-grand-total');
+
+    if (grandTotalElement) {
+        grandTotalElement.textContent = grandTotal;
+    }
+}
 
 /* ============================================
    ПОИСК ПО САЙТУ
