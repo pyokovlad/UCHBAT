@@ -87,7 +87,10 @@
 
     
     <main class="main">
-
+        <div id="site-notification" class="site-notification">
+            <div class="site-notification__icon" id="site-notification-icon">⚠️</div>
+            <div class="site-notification__text" id="site-notification-text"></div>
+        </div>
         
         <section class="page-header">
             <div class="container">
@@ -235,13 +238,125 @@
                     <div class="output-box" id="output-radio">Результат появится здесь...</div>
                     <button class="btn-copy" onclick="copyOutput('output-radio', this)">📋 Копировать</button>
                 </div>
+                <div class="generator-card">
+                    <h3 class="generator-card__title">📢 Объявления</h3>
+                    <p class="generator-card__desc">Анонсы для игровой рации и Discord с автоматической подстановкой ссылок и тегов.</p>
 
+                    <div class="generator-card__form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Платформа</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="ann-platform" value="radio" checked onchange="toggleAnnPlatform()">
+                                        <span>Игровая рация</span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="ann-platform" value="discord" onchange="toggleAnnPlatform()">
+                                        <span>Discord</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Подразделение</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="ann-target" value="УР" checked>
+                                        <span>УР</span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="ann-target" value="ВА">
+                                        <span>ВА</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Часы</label>
+                                <input type="number" class="form-input" id="ann-hours" min="0" max="23" value="14">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Минуты</label>
+                                <input type="number" class="form-input" id="ann-minutes" min="0" max="59" value="30">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Мероприятие</label>
+                                <select class="form-select" id="ann-activity">
+                                    <option value="Вступительная лекция">Вступительная лекция</option>
+                                    <option value="Лекция по профориентации">Лекция по профориентации</option>
+                                    <option value="Лекция по уставу ВС РФ">Лекция по уставу ВС РФ</option>
+                                    <option value="Тренировка по физической подготовке">Тренировка по физической подготовке</option>
+                                    <option value="Итоговый экзамен">Итоговый экзамен</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="ann-room-block">
+                            <label class="form-label">Номер кабинета</label>
+                            <select class="form-select" id="ann-room">
+                                <option value="1">Учебный класс №1</option>
+                                <option value="2">Учебный класс №2</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="ann-channel-block" style="display: none;">
+                            <label class="form-label">Номер лекционной</label>
+                            <select class="form-select" id="ann-channel">
+                                <option value="1">Лекционная №1</option>
+                                <option value="2">Лекционная №2</option>
+                                <option value="3">Лекционная №3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn-generate" onclick="generateAnnouncement()">⚡ Сформировать</button>
+                    <div class="output-box" id="output-announcement">Результат появится здесь...</div>
+                    <button class="btn-copy" onclick="copyOutput('output-announcement', this)">📋 Копировать</button>
+                </div>
             </div>
 
             <!-- ============================================================
                  ВКЛАДКА 2: ОБУЧЕНИЕ
                  ============================================================ -->
             <div class="tab-content" id="tab-education">
+            <div class="generator-card">
+                <h3 class="generator-card__title">👤 Данные сотрудника</h3>
+                <p class="generator-card__desc">
+                    Заполните данные сотрудника. Они обязательны для генераторов обучения
+                    и используются в вечернем отчёте.
+                </p>
+
+                <div class="generator-card__form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Фамилия Имя</label>
+                            <input
+                                type="text"
+                                class="form-input"
+                                id="employee-fio"
+                                placeholder="Иванов Иван"
+                                autocomplete="name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Статик</label>
+                            <input
+                                type="text"
+                                class="form-input"
+                                id="employee-static"
+                                placeholder="123-456"
+                                maxlength="7"
+                                inputmode="numeric"
+                                autocomplete="off"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
                 
                 <div class="generator-card">
@@ -276,6 +391,14 @@
                                 <option value="Курс по КПС и вождению">Курс по КПС и вождению</option>
                             </select>
                         </div>
+                    </div>
+
+
+                    <div class="form-group" id="lecture-count-block" style="display: none; margin-top: 16px;">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="lecture-count-confirm">
+                            <span>Засчитать лекцию / тренировку</span>
+                        </label>
                     </div>
 
                     <button class="btn-generate" onclick="generateLecture()">⚡ Сформировать</button>
@@ -355,83 +478,7 @@
                 </div>
 
                 
-                <div class="generator-card">
-                    <h3 class="generator-card__title">📢 Объявления</h3>
-                    <p class="generator-card__desc">Анонсы для игровой рации и Discord с автоматической подстановкой ссылок и тегов.</p>
-
-                    <div class="generator-card__form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Платформа</label>
-                                <div class="radio-group">
-                                    <label class="radio-item">
-                                        <input type="radio" name="ann-platform" value="radio" checked onchange="toggleAnnPlatform()">
-                                        <span>Игровая рация</span>
-                                    </label>
-                                    <label class="radio-item">
-                                        <input type="radio" name="ann-platform" value="discord" onchange="toggleAnnPlatform()">
-                                        <span>Discord</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Подразделение</label>
-                                <div class="radio-group">
-                                    <label class="radio-item">
-                                        <input type="radio" name="ann-target" value="УР" checked>
-                                        <span>УР</span>
-                                    </label>
-                                    <label class="radio-item">
-                                        <input type="radio" name="ann-target" value="ВА">
-                                        <span>ВА</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Часы</label>
-                                <input type="number" class="form-input" id="ann-hours" min="0" max="23" value="14">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Минуты</label>
-                                <input type="number" class="form-input" id="ann-minutes" min="0" max="59" value="30">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Мероприятие</label>
-                                <select class="form-select" id="ann-activity">
-                                    <option value="Вступительная лекция">Вступительная лекция</option>
-                                    <option value="Лекция по профориентации">Лекция по профориентации</option>
-                                    <option value="Лекция по уставу ВС РФ">Лекция по уставу ВС РФ</option>
-                                    <option value="Тренировка по физической подготовке">Тренировка по физической подготовке</option>
-                                    <option value="Итоговый экзамен">Итоговый экзамен</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group" id="ann-room-block">
-                            <label class="form-label">Номер кабинета</label>
-                            <select class="form-select" id="ann-room">
-                                <option value="1">Учебный класс №1</option>
-                                <option value="2">Учебный класс №2</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" id="ann-channel-block" style="display: none;">
-                            <label class="form-label">Номер лекционной</label>
-                            <select class="form-select" id="ann-channel">
-                                <option value="1">Лекционная №1</option>
-                                <option value="2">Лекционная №2</option>
-                                <option value="3">Лекционная №3</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button class="btn-generate" onclick="generateAnnouncement()">⚡ Сформировать</button>
-                    <div class="output-box" id="output-announcement">Результат появится здесь...</div>
-                    <button class="btn-copy" onclick="copyOutput('output-announcement', this)">📋 Копировать</button>
-                </div>
+                
 
             </div>
 
@@ -439,6 +486,174 @@
                  ВКЛАДКА 3: ОТЧЁТНОСТЬ
                  ============================================================ -->
             <div class="tab-content" id="tab-reports">
+            <div class="generator-card generator-card--wide">
+                <h3 class="generator-card__title">🌙 Вечерняя поверка</h3>
+                <p class="generator-card__desc">
+                    Формирование вечернего доклада. Количество проведённых занятий
+                    автоматически берётся из базы засчитанных занятий за выбранную дату.
+                </p>
+
+                <div class="generator-card__form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Должность</label>
+                            <select class="form-select" id="rollcall-position">
+                                <option value="Заместитель Командира Учебного Батальона" selected>
+                                    Заместитель Командира Учебного Батальона
+                                </option>
+                                <option value="Командир Учебного Батальона">
+                                    Командир Учебного Батальона
+                                </option>
+                                <option value="Начальник Военной Академии">
+                                    Начальник Военной Академии
+                                </option>
+                                <option value="Заместитель Начальника Военной Академии">
+                                    Заместитель Начальника Военной Академии
+                                </option>
+                                <option value="Командир Учебной Роты">
+                                    Командир Учебной Роты
+                                </option>
+                                <option value="Заместитель Командира Учебной роты">
+                                    Заместитель Командира Учебной роты
+                                </option>
+                                <option value="Начальник Отдела Кадров">
+                                    Начальник Отдела Кадров
+                                </option>
+                                <option value="Заместитель Начальника Отдела Кадров">
+                                    Заместитель Начальника Отдела Кадров
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Звание</label>
+                            <select class="form-select" id="rollcall-rank">
+                                <option value="Рядовой">Рядовой</option>
+                                <option value="Ефрейтор">Ефрейтор</option>
+                                <option value="Мл. сержант">Мл. сержант</option>
+                                <option value="Сержант">Сержант</option>
+                                <option value="Ст. сержант">Ст. сержант</option>
+                                <option value="Старшина">Старшина</option>
+                                <option value="Прапорщик">Прапорщик</option>
+                                <option value="Ст. прапорщик">Ст. прапорщик</option>
+                                <option value="Мл. лейтенант">Мл. лейтенант</option>
+                                <option value="Лейтенант">Лейтенант</option>
+                                <option value="Ст. лейтенант">Ст. лейтенант</option>
+                                <option value="Капитан">Капитан</option>
+                                <option value="Майор" selected>Майор</option>
+                                <option value="Подполковник">Подполковник</option>
+                                <option value="Полковник">Полковник</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Фамилия</label>
+                            <input
+                                type="text"
+                                class="form-input"
+                                id="rollcall-surname"
+                                placeholder="Боня"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">По списку</label>
+                            <input
+                                type="number"
+                                class="form-input"
+                                id="rollcall-total"
+                                value="53"
+                                min="0"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">В строю</label>
+                            <input
+                                type="number"
+                                class="form-input"
+                                id="rollcall-formation"
+                                value="15"
+                                min="0"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Незаконно отсутствующих</label>
+                            <select class="form-select" id="rollcall-absent">
+                                <option value="нет">нет</option>
+                                <option value="есть">есть</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Рапортов на вступление</label>
+                            <input
+                                type="number"
+                                class="form-input"
+                                id="rollcall-entry-reports"
+                                value="1"
+                                min="0"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Рапортов на звание</label>
+                            <input
+                                type="number"
+                                class="form-input"
+                                id="rollcall-rank-reports"
+                                value="1"
+                                min="0"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Увольнение</label>
+                            <select class="form-select" id="rollcall-dismissal">
+                                <option value="не планируется">не планируется</option>
+                                <option value="планируется">планируется</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Дата</label>
+                            <input type="date" class="form-input" id="rollcall-date">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Засчитанных занятий</label>
+                            <input
+                                type="text"
+                                class="form-input"
+                                id="rollcall-lessons"
+                                value="0"
+                                readonly
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn-generate" type="button" onclick="loadRollCallLessons()">
+                        🔄 Получить количество занятий
+                    </button>
+
+                    <button class="btn-generate" type="button" onclick="generateRollCall()">
+                        ⚡ Сформировать доклад
+                    </button>
+                </div>
+
+                <div class="output-box" id="output-rollcall">Результат появится здесь...</div>
+                <button class="btn-copy" onclick="copyOutput('output-rollcall', this)">📋 Копировать</button>
+            </div>
+
+
 
                 
                 <div class="generator-card">
@@ -775,6 +990,6 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=2"></script>
 </body>
 </html>
