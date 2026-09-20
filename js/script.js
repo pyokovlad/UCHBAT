@@ -445,48 +445,76 @@ async function generateLecture() {
 
 
 /* --- ГЕНЕРАТОР 4: ПРИСЯГА --- */
-
 function generateOath() {
-    const identity = requireEmployeeIdentity();
+    const fioInput = document.getElementById('oath-fio');
 
-    if (!identity) return;
-
-    const rank = document.getElementById('oath-rank').value;
-    const surname = document.getElementById('oath-surname').value.trim();
-
-    if (!surname) {
-        showSiteNotification('Введите фамилию.', 'warning');
+    if (!fioInput) {
+        console.error('Не найдено поле #oath-fio');
         return;
     }
 
-    const result =
-        `/todo Военнослужащий ${rank} ${surname} принял Военную Присягу*Время на часах ${getCurrentTime()}`;
+    const fio = capitalizeWords(fioInput.value.trim());
 
-    document.getElementById('output-oath').textContent = result;
+    if (!fio) {
+        alert('Введите ФИО военнослужащего');
+        fioInput.focus();
+        return;
+    }
+
+    const time = getCurrentTime();
+
+    const result =
+        `/todo Рядовой ${fio} Торжественно присягнул на верность Вооруженным Силам Российской Федерации*Время на часах ${time}`;
+
+    const output = document.getElementById('output-oath');
+
+    if (output) {
+        output.textContent = result;
+    }
 }
 
 
 /* --- ГЕНЕРАТОР 5: ЭКЗАМЕН --- */
-
 function generateExam() {
-    const identity = requireEmployeeIdentity();
+    const fioInput = document.getElementById('exam-fio');
 
-    if (!identity) return;
-
-    const rank = document.getElementById('exam-rank').value;
-    const surname = document.getElementById('exam-surname').value.trim();
-    const resultValue = document.getElementById('exam-result').value;
-    const points = document.getElementById('exam-points').value;
-
-    if (!surname) {
-        showSiteNotification('Введите фамилию.', 'warning');
+    if (!fioInput) {
+        console.error('Не найдено поле #exam-fio');
         return;
     }
 
-    const result =
-        `/todo ${rank} ${surname} сдал экзамен. Результат: ${resultValue}. Баллы: ${points}*Время на часах ${getCurrentTime()}`;
+    const fio = capitalizeWords(fioInput.value.trim());
 
-    document.getElementById('output-exam').textContent = result;
+    if (!fio) {
+        alert('Введите ФИО военнослужащего');
+        fioInput.focus();
+        return;
+    }
+
+    const rankElement = document.getElementById('exam-rank');
+    const resultElement = document.querySelector('input[name="exam-result"]:checked');
+    const attemptElement = document.getElementById('exam-attempt');
+    const pointsElement = document.getElementById('exam-points');
+
+    if (!rankElement || !resultElement || !attemptElement || !pointsElement) {
+        console.error('Не все поля экзамена найдены.');
+        return;
+    }
+
+    const rank = rankElement.value;
+    const result = resultElement.value;
+    const attempt = attemptElement.value;
+    const points = pointsElement.value || '0';
+    const time = getCurrentTime();
+
+    const text =
+        `/todo ${rank} ${fio} ${result} экзамен с ${attempt} попытки, набрав ${points} из 40 баллов*Время на часах ${time}`;
+
+    const output = document.getElementById('output-exam');
+
+    if (output) {
+        output.textContent = text;
+    }
 }
 
 
