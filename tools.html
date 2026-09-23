@@ -87,11 +87,21 @@
 
     
     <main class="main">
-        <div id="site-notification" class="site-notification">
-            <div class="site-notification__icon" id="site-notification-icon">⚠️</div>
-            <div class="site-notification__text" id="site-notification-text"></div>
-        </div>
         
+        <div class="bottom-notification" id="bottom-notification">
+        <div class="bottom-notification__content">
+            <div class="bottom-notification__text" id="bottom-notification-text"></div>
+        </div>
+
+            <button
+                type="button"
+                class="bottom-notification__close"
+                id="bottom-notification-close"
+                aria-label="Закрыть уведомление"
+                >×
+            </button>
+        </div>
+
         <section class="page-header">
             <div class="container">
                 <h1 class="page-header__title">Инструменты</h1>
@@ -117,6 +127,25 @@
                 <div class="generator-card">
                     <h3 class="generator-card__title">📋 Доклад с поста</h3>
                     <p class="generator-card__desc">Формирование доклада о заступлении, поминутного доклада или сдачи поста.</p>
+
+                    <div class="lecture-notification" id="lecture-notification">
+                        <div class="lecture-notification__icon" id="lecture-notification-icon">ℹ️</div>
+
+                        <div class="lecture-notification__content">
+                            <div class="lecture-notification__title" id="lecture-notification-title">
+                                Уведомление
+                            </div>
+
+                            <div class="lecture-notification__text" id="lecture-notification-text"></div>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="lecture-notification__close"
+                            id="lecture-notification-close"
+                            aria-label="Закрыть"
+                        >×</button>
+                    </div>
 
                     <div class="generator-card__form">
                         <div class="form-row">
@@ -363,6 +392,26 @@
                     <h3 class="generator-card__title">📚 Лекция / Тренировка</h3>
                     <p class="generator-card__desc">Формирование команды /todo для начала или окончания занятия. Время подставляется автоматически.</p>
 
+                    <div class="generator-notification" id="lecture-generator-notification">
+                        <div class="generator-notification__icon" id="lecture-generator-notification-icon">ℹ️</div>
+
+                        <div class="generator-notification__content">
+                            <div class="generator-notification__title" id="lecture-generator-notification-title">
+                                Уведомление
+                            </div>
+
+                            <div class="generator-notification__text" id="lecture-generator-notification-text"></div>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="generator-notification__close"
+                            id="lecture-generator-notification-close"
+                            aria-label="Закрыть"
+                        >×</button>
+                    </div>
+
+
                     <div class="generator-card__form">
                         <div class="form-group">
                             <label class="form-label">Действие</label>
@@ -423,6 +472,25 @@
                     <h3 class="generator-card__title">🇷🇺 Присяга</h3>
                     <p class="generator-card__desc">Формирование /todo для торжественной присяги. Звание всегда «Рядовой».</p>
 
+                    <div class="generator-notification" id="oath-generator-notification">
+                        <div class="generator-notification__icon" id="oath-generator-notification-icon">ℹ️</div>
+
+                        <div class="generator-notification__content">
+                            <div class="generator-notification__title" id="oath-generator-notification-title">
+                                Уведомление
+                            </div>
+
+                            <div class="generator-notification__text" id="oath-generator-notification-text"></div>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="generator-notification__close"
+                            id="oath-generator-notification-close"
+                            aria-label="Закрыть"
+                        >×</button>
+                    </div>
+
                     <div class="generator-card__form">
                         <div class="form-group">
                             <label class="form-label">ФИО военнослужащего</label>
@@ -439,6 +507,25 @@
                 <div class="generator-card">
                     <h3 class="generator-card__title">📝 Экзамен</h3>
                     <p class="generator-card__desc">Формирование /todo для результатов экзамена.</p>
+
+                    <div class="generator-notification" id="exam-generator-notification">
+                        <div class="generator-notification__icon" id="exam-generator-notification-icon">ℹ️</div>
+
+                        <div class="generator-notification__content">
+                            <div class="generator-notification__title" id="exam-generator-notification-title">
+                                Уведомление
+                            </div>
+
+                            <div class="generator-notification__text" id="exam-generator-notification-text"></div>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="generator-notification__close"
+                            id="exam-generator-notification-close"
+                            aria-label="Закрыть"
+                        >×</button>
+                    </div>
 
                     <div class="generator-card__form">
                         <div class="form-row">
