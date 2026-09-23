@@ -401,9 +401,21 @@
                         </label>
                     </div>
 
+                    <div class="lecture-timer" id="lecture-timer" style="display: none;">
+                        <div class="lecture-timer__label">⏱ ВРЕМЯ ЗАНЯТИЯ</div>
+                        <div class="lecture-timer__time" id="lecture-timer-display">00:00:00</div>
+                        <div class="lecture-timer__activity" id="lecture-timer-activity"></div>
+                    </div>
+
                     <button class="btn-generate" onclick="generateLecture()">⚡ Сформировать</button>
-                    <div class="output-box" id="output-lecture">Результат появится здесь...</div>
-                    <button class="btn-copy" onclick="copyOutput('output-lecture', this)">📋 Копировать</button>
+
+                    <div class="output-box" id="output-lecture">
+                        Результат появится здесь...
+                    </div>
+
+                    <button class="btn-copy" onclick="copyOutput('output-lecture', this)">
+                        📋 Копировать
+                    </button>
                 </div>
 
                 

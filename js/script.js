@@ -3,7 +3,7 @@
    и ВЕЧЕРНЕЙ ПОВЕРКИ
    ============================================ */
 
-const LECTURE_API_URL = 'https://script.google.com/macros/s/AKfycbzojCI7IRKshvaDW-cO1Ryl2mqqbH-5FHK7la5Xq-r4Cjs3ZbzfpNlkW1EUeqWSGYEd/exec';
+const LECTURE_API_URL = 'https://script.google.com/macros/s/AKfycby2rLPQ0EdDypMKitVyU0GZ746ER6_KC6ZxjciilOfJe99flUdDudH4QJSk1ffDp6HN/exec';
 
 let siteNotificationTimer = null;
 
@@ -345,104 +345,494 @@ async function generateLecture() {
 
     if (!identity) return;
 
-    const action = document.querySelector(
+    const actionInput = document.querySelector(
         'input[name="lecture-action"]:checked'
-    ).value;
+    );
 
-    const activity = document.getElementById('lecture-activity').value;
-    const time = getCurrentTime();
+    const activityElement =
+        document.getElementById('lecture-activity');
 
-    const output = document.getElementById('output-lecture');
-    const confirmCheckbox =
-        document.getElementById('lecture-count-confirm');
+    if (!actionInput || !activityElement) {
+        return;
+    }
+
+    const action = actionInput.value;
+    const activity = activityElement.value;
+
+    if (!activity) {
+        showSiteNotification(
+            'Выберите лекцию или тренировку.',
+            'warning'
+        );
+        return;
+    }
+
+    const localKey = getLecturePendingKey(
+        identity.staticId,
+        activity
+    );
+
+
+    /* ============================================================
+       НАЧАЛИ
+       ============================================================ */
 
     if (action === 'начали') {
-        const localKey =
-            getLecturePendingKey(identity.staticId, activity);
 
-        if (localStorage.getItem(localKey)) {
-            showSiteNotification('Для этого занятия уже зафиксировано начало. Сначала завершите его.',
-                'warning'
-            );
+        /*
+         * Проверяем, нет ли уже запущенного занятия
+         */
+        const existing =
+            localStorage.getItem(localKey);
+
+        if (existing) {
+
+            try {
+                const session =
+                    JSON.parse(existing);
+
+                startLectureTimer(session);
+
+                showSiteNotification(
+                    'Занятие уже запущено. Секундомер продолжает работу.',
+                    'warning'
+                );
+
+            } catch (error) {
+
+                console.error(
+                    'Ошибка восстановления занятия:',
+                    error
+                );
+
+                localStorage.removeItem(localKey);
+            }
+
             return;
         }
 
+
+        /*
+         * Создаём новую сессию
+         */
+        const now = new Date();
+
         const session = {
             id: makeLectureId(),
+
             fio: identity.fio,
+
             staticId: identity.staticId,
-            activity,
+
+            activity: activity,
+
             date: getMoscowDate(),
-            startTime: time
+
+            startTime: getCurrentTime(),
+
+            startTimestamp: Date.now()
         };
 
+
+        /*
+         * Сохраняем занятие локально
+         */
         localStorage.setItem(
             localKey,
             JSON.stringify(session)
         );
 
+
+        /*
+         * Отправляем НАЧАЛО
+         * в твою новую Google Таблицу
+         */
         await postLectureEvent({
             action: 'start',
-            ...session
+
+            id: session.id,
+
+            fio: session.fio,
+
+            staticId: session.staticId,
+
+            activity: session.activity,
+
+            date: session.date,
+
+            startTime: session.startTime
         });
 
-        const result =
-            `/todo Военнослужащие ${action} ${activity}*Время на часах ${time}`;
 
-        output.textContent = result;
+        /*
+         * Запускаем секундомер
+         */
+        startLectureTimer(session);
+
+
+        /*
+         * Формируем обычный /todo
+         */
+        const output =
+            document.getElementById(
+                'output-lecture'
+            );
+
+        if (output) {
+            output.textContent =
+                 `/todo Военнослужащие начали ${activity}*Время на часах ${session.startTime}`;
+        }
+
+
+        showSiteNotification(
+            'Занятие начато. Секундомер запущен.',
+            'success'
+        );
 
         return;
     }
 
-    if (!confirmCheckbox || !confirmCheckbox.checked) {
-        const result =
-            `/todo Военнослужащие ${action} ${activity}*Время на часах ${time}`;
 
-        output.textContent = result;
+    /* ============================================================
+       ЗАКОНЧИЛИ
+       ============================================================ */
+
+    if (action === 'закончили') {
+
+        const checkbox =
+            document.getElementById(
+                'lecture-count-confirm'
+            );
+
+
+        /*
+         * Если не стоит галочка «Засчитать»,
+         * оставляем занятие открытым.
+         */
+        if (
+            !checkbox ||
+            !checkbox.checked
+        ) {
+
+            generateTodo(
+                `Лекция "${activity}" завершена, но не засчитана.`
+            );
 
             showSiteNotification(
-                'Занятие не засчитано. Поставьте галочку «Засчитать лекцию / тренировку», если занятие действительно завершено.',
+                'Занятие не засчитано.',
                 'warning'
             );
 
-        return;
-    }
+            return;
+        }
 
-    const session =
-        await findOpenLecture(identity, activity);
 
-    if (!session) {
-        showSiteNotification(
-            'Не найдено открытое занятие с началом. Сначала сформируйте «Начали».',
-            'error'
+        /*
+         * Получаем активное занятие
+         */
+        const session =
+            await findOpenLecture(
+                identity,
+                activity
+            );
+
+
+        if (!session) {
+
+            showSiteNotification(
+                'Не найдено активное занятие.',
+                'error'
+            );
+
+            stopLectureTimer();
+
+            return;
+        }
+
+
+        const endTime =
+            getCurrentTime();
+
+
+        /*
+         * Отправляем ЗАВЕРШЕНИЕ
+         * в твою новую Google Таблицу
+         */
+        await postLectureEvent({
+
+            action: 'finish',
+
+            id: session.id,
+
+            fio: session.fio ||
+                identity.fio,
+
+            staticId: session.staticId ||
+                identity.staticId,
+
+            activity: session.activity ||
+                activity,
+
+            date: session.date ||
+                getMoscowDate(),
+
+            startTime: session.startTime,
+
+            endTime: endTime,
+
+            counted: true
+        });
+
+
+        /*
+         * Удаляем активную сессию
+         */
+        localStorage.removeItem(
+            localKey
         );
-        return;
+
+
+        /*
+         * Останавливаем секундомер
+         */
+        stopLectureTimer();
+
+
+        /*
+         * Сбрасываем галочку
+         */
+        checkbox.checked = false;
+
+
+        /*
+         * Обычный результат
+         */
+        generateTodo(
+            `Лекция "${activity}" завершена и засчитана.`
+        );
+
+
+        showSiteNotification(
+            'Занятие завершено и засчитано.',
+            'success'
+        );
     }
-
-    await postLectureEvent({
-        action: 'finish',
-        id: session.id,
-        fio: identity.fio,
-        staticId: identity.staticId,
-        activity,
-        date: session.date || getMoscowDate(),
-        startTime: session.startTime,
-        endTime: time,
-        counted: true
-    });
-
-    localStorage.removeItem(
-        getLecturePendingKey(identity.staticId, activity)
-    );
-
-    confirmCheckbox.checked = false;
-
-    const result =
-        `/todo Военнослужащие ${action} ${activity}*Время на часах ${time}`;
-
-    output.textContent = result;
 }
 
+// ============================================================
+// СЕКУНДОМЕР ЛЕКЦИИ / ТРЕНИРОВКИ
+// ============================================================
+
+let lectureTimerInterval = null;
+let lectureTimerStart = null;
+
+function getLectureTimerElements() {
+    return {
+        timer: document.getElementById('lecture-timer'),
+        display: document.getElementById(
+            'lecture-timer-display'
+        ),
+        activity: document.getElementById(
+            'lecture-timer-activity'
+        )
+    };
+}
+
+function formatLectureTimer(totalSeconds) {
+    const hours = Math.floor(
+        totalSeconds / 3600
+    );
+
+    const minutes = Math.floor(
+        (totalSeconds % 3600) / 60
+    );
+
+    const seconds =
+        totalSeconds % 60;
+
+    return [
+        String(hours).padStart(2, '0'),
+        String(minutes).padStart(2, '0'),
+        String(seconds).padStart(2, '0')
+    ].join(':');
+}
+
+function updateLectureTimer() {
+    const elements =
+        getLectureTimerElements();
+
+    if (
+        !elements.display ||
+        !lectureTimerStart
+    ) {
+        return;
+    }
+
+    const elapsedSeconds =
+        Math.max(
+            0,
+            Math.floor(
+                (Date.now() - lectureTimerStart) /
+                1000
+            )
+        );
+
+    elements.display.textContent =
+        formatLectureTimer(
+            elapsedSeconds
+        );
+}
+
+function startLectureTimer(session) {
+    const elements =
+        getLectureTimerElements();
+
+    if (
+        !elements.timer ||
+        !elements.display
+    ) {
+        return;
+    }
+
+    lectureTimerStart =
+        Number(session.startTimestamp) ||
+        Date.now();
+
+    elements.timer.style.display =
+        'block';
+
+    if (elements.activity) {
+        elements.activity.textContent =
+            session.activity || '';
+    }
+
+    updateLectureTimer();
+
+    if (lectureTimerInterval) {
+        clearInterval(
+            lectureTimerInterval
+        );
+    }
+
+    lectureTimerInterval =
+        setInterval(
+            updateLectureTimer,
+            1000
+        );
+}
+
+function stopLectureTimer() {
+    if (lectureTimerInterval) {
+        clearInterval(
+            lectureTimerInterval
+        );
+
+        lectureTimerInterval = null;
+    }
+
+    lectureTimerStart = null;
+
+    const elements =
+        getLectureTimerElements();
+
+    if (!elements.timer) {
+        return;
+    }
+
+    elements.timer.style.display =
+        'none';
+
+    if (elements.display) {
+        elements.display.textContent =
+            '00:00:00';
+    }
+
+    if (elements.activity) {
+        elements.activity.textContent =
+            '';
+    }
+}
+
+function restoreLectureTimer() {
+    const fioInput =
+        document.getElementById(
+            'employee-fio'
+        );
+
+    const staticInput =
+        document.getElementById(
+            'employee-static'
+        );
+
+    if (
+        !fioInput ||
+        !staticInput
+    ) {
+        return;
+    }
+
+    const fio =
+        fioInput.value.trim();
+
+    const staticId =
+        staticInput.value.trim();
+
+    if (
+        !fio ||
+        !staticId
+    ) {
+        return;
+    }
+
+    const activityElement =
+        document.getElementById(
+            'lecture-activity'
+        );
+
+    if (!activityElement) {
+        return;
+    }
+
+    const activity =
+        activityElement.value;
+
+    const localKey =
+        getLecturePendingKey(
+            staticId,
+            activity
+        );
+
+    const saved =
+        localStorage.getItem(
+            localKey
+        );
+
+    if (!saved) {
+        return;
+    }
+
+    try {
+        const session =
+            JSON.parse(saved);
+
+        if (
+            !session ||
+            !session.startTimestamp
+        ) {
+            return;
+        }
+
+        startLectureTimer(
+            session
+        );
+
+    } catch (error) {
+        console.error(
+            'Не удалось восстановить секундомер:',
+            error
+        );
+    }
+}
 
 /* --- ГЕНЕРАТОР 4: ПРИСЯГА --- */
 function generateOath() {
@@ -997,11 +1387,227 @@ function generatePointsReport() {
     }
 }
 
+
+/* ============================================
+   САМЫЕ АКТИВНЫЕ
+   ============================================ */
+
+function pluralizeRu(number, one, few, many) {
+    const n = Math.abs(Number(number)) % 100;
+    const n1 = n % 10;
+
+    if (n >= 11 && n <= 19) {
+        return many;
+    }
+
+    if (n1 === 1) {
+        return one;
+    }
+
+    if (n1 >= 2 && n1 <= 4) {
+        return few;
+    }
+
+    return many;
+}
+
+
+function createLeaderRow(leader, index) {
+
+    const row = document.createElement('div');
+    row.className = 'leader-row';
+
+    /* Номер места */
+    const rank = document.createElement('div');
+    rank.className = 'leader-row__rank';
+    rank.textContent = String(index + 1).padStart(2, '0');
+
+    /* ФИО */
+    const name = document.createElement('div');
+    name.className = 'leader-row__name';
+    name.textContent = leader.fio || 'Без имени';
+
+    /* Статистика */
+    const stats = document.createElement('div');
+    stats.className = 'leader-row__stats';
+
+    const lessons = document.createElement('div');
+    lessons.className = 'leader-row__lessons';
+
+    const lessonsCount = Number(leader.lessons) || 0;
+
+    lessons.textContent =
+        `${lessonsCount} ${
+            pluralizeRu(
+                lessonsCount,
+                'занятие',
+                'занятия',
+                'занятий'
+            )
+        }`;
+
+    const minutes = document.createElement('div');
+    minutes.className = 'leader-row__minutes';
+
+    const minutesCount = Number(leader.minutes) || 0;
+
+    minutes.textContent =
+        `${minutesCount} ${
+            pluralizeRu(
+                minutesCount,
+                'минута',
+                'минуты',
+                'минут'
+            )
+        }`;
+
+    stats.appendChild(lessons);
+    stats.appendChild(minutes);
+
+    row.appendChild(rank);
+    row.appendChild(name);
+    row.appendChild(stats);
+
+    return row;
+}
+
+
+function renderLeaders(containerId, leaders) {
+
+    const container =
+        document.getElementById(containerId);
+
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    if (
+        !Array.isArray(leaders) ||
+        leaders.length === 0
+    ) {
+
+        const state =
+            document.createElement('div');
+
+        state.className = 'leaders-state';
+
+        state.textContent =
+            'Пока нет занятий длительностью 10 минут и более.';
+
+        container.appendChild(state);
+
+        return;
+    }
+
+    leaders.forEach((leader, index) => {
+
+        container.appendChild(
+            createLeaderRow(leader, index)
+        );
+
+    });
+}
+
+
+async function loadLeaders() {
+
+    const weekContainer =
+        document.getElementById('leaders-week');
+
+    const allContainer =
+        document.getElementById('leaders-all');
+
+    /*
+     * Если блоков статистики на странице нет,
+     * ничего не делаем.
+     */
+    if (!weekContainer && !allContainer) {
+        return;
+    }
+
+    const [
+        weekData,
+        allData
+    ] = await Promise.all([
+
+        getLectureApi('leaders', {
+            period: 'week',
+            limit: '5'
+        }),
+
+        getLectureApi('leaders', {
+            period: 'all',
+            limit: '5'
+        })
+
+    ]);
+
+
+    /* --- НЕДЕЛЯ --- */
+
+    if (weekContainer) {
+
+        if (
+            weekData &&
+            weekData.success
+        ) {
+
+            renderLeaders(
+                'leaders-week',
+                weekData.leaders
+            );
+
+        } else {
+
+            weekContainer.innerHTML = `
+                <div class="leaders-state leaders-state--error">
+                    Не удалось загрузить статистику.
+                </div>
+            `;
+
+        }
+
+    }
+
+
+    /* --- ВСЁ ВРЕМЯ --- */
+
+    if (allContainer) {
+
+        if (
+            allData &&
+            allData.success
+        ) {
+
+            renderLeaders(
+                'leaders-all',
+                allData.leaders
+            );
+
+        } else {
+
+            allContainer.innerHTML = `
+                <div class="leaders-state leaders-state--error">
+                    Не удалось загрузить статистику.
+                </div>
+            `;
+
+        }
+
+    }
+
+}
+
+
+
 /* ============================================
    ПОИСК ПО САЙТУ
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    loadLeaders();
+
 
     /* --- ВОССТАНОВЛЕНИЕ ДАННЫХ СОТРУДНИКА --- */
 
@@ -1526,4 +2132,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     );
 
+        restoreLectureTimer();
 });

@@ -3787,3 +3787,225 @@ a {
 .points-screenshots__add:hover {
     background: #dcdcdc;
 }
+
+/* ============================================
+   САМЫЕ АКТИВНЫЕ
+   ============================================ */
+
+.leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.leaders-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.leaders-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-elevated);
+}
+
+.leaders-panel__title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+.leaders-panel__subtitle {
+    margin-top: 4px;
+    color: var(--text-muted);
+    font-size: .78rem;
+}
+
+.leaders-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.leader-row {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    transition: background .2s ease;
+}
+
+.leader-row:last-child {
+    border-bottom: none;
+}
+
+.leader-row:hover {
+    background: var(--bg-elevated);
+}
+
+.leader-row__rank {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+
+    color: var(--accent-gold);
+    font-family: var(--font-heading);
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.leader-row:first-child .leader-row__rank {
+    border-color: rgba(201, 162, 39, .55);
+    background: rgba(201, 162, 39, .10);
+}
+
+.leader-row__name {
+    min-width: 0;
+
+    color: var(--text-main);
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+.leader-row__stats {
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.leader-row__lessons {
+    color: var(--accent-gold);
+    font-family: var(--font-heading);
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.leader-row__minutes {
+    margin-top: 3px;
+    color: var(--text-muted);
+    font-size: .76rem;
+}
+
+.leaders-state {
+    padding: 28px 20px;
+    text-align: center;
+
+    color: var(--text-muted);
+    font-size: .88rem;
+    line-height: 1.5;
+}
+
+.leaders-state--error {
+    color: #e8d5d5;
+}
+
+
+/* ============================================
+   АДАПТИВНОСТЬ
+   ============================================ */
+
+@media (max-width: 900px) {
+
+    .leaders-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .leaders-panel__header {
+        padding: 18px 20px;
+    }
+
+    .leader-row {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    .leader-row__rank {
+        width: 30px;
+        height: 30px;
+        font-size: .82rem;
+    }
+
+    .leader-row__stats {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .leader-row__name {
+        font-size: .88rem;
+    }
+
+}
+
+/* ============================================================
+   СЕКУНДОМЕР ЛЕКЦИИ / ТРЕНИРОВКИ
+   ============================================================ */
+
+.lecture-timer {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding: 22px 20px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.lecture-timer__label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.lecture-timer__time {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--accent-gold);
+    letter-spacing: 2px;
+}
+
+.lecture-timer__activity {
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+}
+
+@media (max-width: 600px) {
+    .lecture-timer {
+        padding: 18px 16px;
+    }
+
+    .lecture-timer__time {
+        font-size: 1.8rem;
+    }
+}
